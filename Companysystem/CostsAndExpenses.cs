@@ -104,5 +104,12 @@ namespace Companysystem
             dx.Show();
             Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AnalysisCostsInYear dx = new AnalysisCostsInYear();
+            dx.Show();
+            Hide();
+        }
     }
 }

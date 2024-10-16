@@ -291,12 +291,13 @@
             // 
             button3.BackColor = SystemColors.ControlLightLight;
             button3.ForeColor = Color.Coral;
-            button3.Location = new Point(269, 367);
+            button3.Location = new Point(342, 367);
             button3.Name = "button3";
-            button3.Size = new Size(265, 78);
+            button3.Size = new Size(192, 78);
             button3.TabIndex = 28;
             button3.Text = "تحليل المصروفات خلال العام";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // CostsAndExpenses
             // 
