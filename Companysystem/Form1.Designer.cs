@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             BtnAdd = new Button();
             EmpNameTxt = new TextBox();
             label1 = new Label();
             Next = new Button();
+            pictureBox1 = new PictureBox();
+            label2 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // BtnAdd
@@ -72,17 +76,40 @@
             Next.UseVisualStyleBackColor = true;
             Next.Click += Next_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(43, 93);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(124, 108);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(82, 204);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 20);
+            label2.TabIndex = 5;
+            label2.Text = "عملاء";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(899, 450);
+            Controls.Add(label2);
+            Controls.Add(pictureBox1);
             Controls.Add(Next);
             Controls.Add(label1);
             Controls.Add(EmpNameTxt);
             Controls.Add(BtnAdd);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -93,5 +120,7 @@
         private TextBox EmpNameTxt;
         private Label label1;
         private Button Next;
+        private PictureBox pictureBox1;
+        private Label label2;
     }
 }

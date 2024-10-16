@@ -1,3 +1,4 @@
+using Companysystem.Clientforms;
 using Companysystem.Models;
 using System;
 
@@ -38,6 +39,15 @@ namespace Companysystem
             CostsAndExpenses c = new CostsAndExpenses();
             c.Show();
             Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ClientForm client = new ClientForm();
+            client.Show();
+            Hide();
+        
+
         }
     }
 }

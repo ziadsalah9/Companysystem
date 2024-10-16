@@ -110,6 +110,7 @@ namespace Companysystem
             AnalysisCostsInYear dx = new AnalysisCostsInYear();
             dx.Show();
             Hide();
+
         }
     }
 }
