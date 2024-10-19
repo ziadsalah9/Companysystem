@@ -1,5 +1,6 @@
 using Companysystem.Clientforms;
 using Companysystem.Models;
+using Companysystem.SalesForms;
 using System;
 
 namespace Companysystem
@@ -46,8 +47,15 @@ namespace Companysystem
             ClientForm client = new ClientForm();
             client.Show();
             Hide();
-        
 
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            SalesForm s = new SalesForm();
+            s.Show();
+            Hide();
         }
     }
 }

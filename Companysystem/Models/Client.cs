@@ -13,6 +13,6 @@ namespace Companysystem.Models
 
         public string Name { get; set; }
 
-        public string ClientNo {  get; set; }
+      //  public string ClientNo {  get; set; }
     }
 }

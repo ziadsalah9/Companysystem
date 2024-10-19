@@ -35,7 +35,9 @@
             Next = new Button();
             pictureBox1 = new PictureBox();
             label2 = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // BtnAdd
@@ -96,11 +98,23 @@
             label2.TabIndex = 5;
             label2.Text = "عملاء";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(24, 247);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(165, 136);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(899, 450);
+            Controls.Add(pictureBox2);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(Next);
@@ -110,6 +124,7 @@
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +137,6 @@
         private Button Next;
         private PictureBox pictureBox1;
         private Label label2;
+        private PictureBox pictureBox2;
     }
 }

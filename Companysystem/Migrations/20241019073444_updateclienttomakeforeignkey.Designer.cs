@@ -4,6 +4,7 @@ using Companysystem.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Companysystem.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20241019073444_updateclienttomakeforeignkey")]
+    partial class updateclienttomakeforeignkey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +32,10 @@ namespace Companysystem.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClientNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -110,42 +117,16 @@ namespace Companysystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Commissions")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("ItemfkId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("NetPriceValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("clientID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("deduct")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("month")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("priceValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ItemfkId");
 
                     b.HasIndex("clientID");
 
@@ -154,12 +135,6 @@ namespace Companysystem.Migrations
 
             modelBuilder.Entity("Companysystem.Models.Sales", b =>
                 {
-                    b.HasOne("Companysystem.Models.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemfkId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Companysystem.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("clientID")
@@ -167,8 +142,6 @@ namespace Companysystem.Migrations
                         .IsRequired();
 
                     b.Navigation("Client");
-
-                    b.Navigation("Item");
                 });
 #pragma warning restore 612, 618
         }

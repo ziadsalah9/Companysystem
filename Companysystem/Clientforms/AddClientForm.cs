@@ -35,29 +35,29 @@ namespace Companysystem.Clientforms
             using (var context = new StoreContext())
             {
                 var name = clientnametxt.Text;
-                var clientno = clientnotxt.Text;
+                //var clientno = clientnotxt.Text;
 
-                var check = context.clients.FirstOrDefault(p => p.ClientNo == clientno);
+                //var check = context.clients.FirstOrDefault(p => p.ClientNo == clientno);
 
 
-                if (check != null || clientno.Length != 11 || !IsValidPhoneNumber(clientno))
-                {
+                //if (check != null || clientno.Length != 11 || !IsValidPhoneNumber(clientno))
+                //{
 
-                    MessageBox.Show("من فضلك ادخل رقم صحيح مكون من 11 رقم وغير موجود من قبل");
-                }
-                else
-                {
+                //    MessageBox.Show("من فضلك ادخل رقم صحيح مكون من 11 رقم وغير موجود من قبل");
+                //}
+                //else
+                //{
 
                     var data = new Client
                     {
                         Name = name,
-                        ClientNo = clientno,
+                       // ClientNo = Guid.NewGuid().ToString(),
                     };
 
                     context.clients.Add(data);
                     context.SaveChanges();
                     MessageBox.Show("تمت الاضافة بنجاح");
-                }
+                
 
 
             }

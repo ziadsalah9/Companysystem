@@ -25,7 +25,7 @@ namespace Companysystem.Models
         public DbSet<CostsAndExpensesModel> CostsAndExpensesModels { get; set; }
 
         public DbSet<Client> clients { get; set; }
-
+        public DbSet<Sales> Salesd { get; set; }
 
 
     }
