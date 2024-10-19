@@ -36,6 +36,12 @@ namespace Companysystem.SalesForms
                 listclientsname.DisplayMember = "Name";
                 listclientsname.ValueMember = "Id";
 
+                var items = context.items.ToList();
+                listBox1.DataSource = items;
+                listBox1.DisplayMember = "Name";
+                listBox1.ValueMember = "Id";
+
+
                 listclientsname.SelectedIndexChanged += Listclientsname_SelectedIndexChanged;
 
 
@@ -45,7 +51,7 @@ namespace Companysystem.SalesForms
         private void Listclientsname_SelectedIndexChanged(object? sender, EventArgs e)
         {
 
-        
+
         }
 
 
@@ -60,21 +66,46 @@ namespace Companysystem.SalesForms
             using (var context = new StoreContext())
             {
                 // Ensure the selected value is cast to the correct type (assuming int)
-                int selectedId = (int)listclientsname.SelectedValue;
 
-               // MessageBox.Show($"Selected ID: {selectedId}");
+               
+                    int selectedId = (int)listclientsname.SelectedValue ;
+                    int itemfk = (int)listBox1.SelectedValue;
+                    if (selectedId.ToString() is not null || itemfk.ToString() is not null)
+                    {
 
-                var sale = new Sales
-                {
-                    clientID = selectedId,
-                    Date = dateTimePicker1.Value,
-                    month = dateTimePicker1.Value.Month,
-                    
-                };
+                        MessageBox.Show($"Selected ID: {selectedId}");
+                        MessageBox.Show($"select id  : {itemfk}");
 
-                context.Salesd.Add(sale);
-                context.SaveChanges();
+                        var sale = new Sales
+                        {
+                            clientID = selectedId,
+                            Date = dateTimePicker1.Value,
+                            month = dateTimePicker1.Value.Month,
+                            ItemfkId = itemfk,
+                            quantity =(int) quantitynum.Value,
+                            Commissions = commisionnum.Value,
+                            deduct = discountnum.Value,
+                           Notes = noticestxt.Text,
+                           Price = priceNum.Value,
+                            priceValue = quantitynum.Value * priceNum.Value,
+                            NetPriceValue = (quantitynum.Value * priceNum.Value)-(discountnum.Value +commisionnum.Value),
+
+                            
+                        };
+
+                        context.Salesd.Add(sale);
+                        context.SaveChanges();
+                    }
+                
+             
+                
+               
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

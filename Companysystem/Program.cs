@@ -1,3 +1,7 @@
+using Companysystem.MapProfile;
+using Companysystem.SalesForms;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Companysystem
 {
     internal static class Program
@@ -9,15 +13,32 @@ namespace Companysystem
         static void Main()
         {
 
-            
+
+
+
+            var services = new ServiceCollection();
+            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddTransient<BillsForms>();
+            services.AddTransient<Form1>();
+            var serviceProvider = services.BuildServiceProvider();
+
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //ApplicationConfiguration.Initialize();
 
+            var mainForm = serviceProvider.GetRequiredService<BillsForms>();
+            var main = serviceProvider.GetRequiredService<Form1>();
+
+
+
+          //  Application.Run(new Form1());
+           Application.Run(mainForm);
 
 
         }
+
+  
+
     }
 }

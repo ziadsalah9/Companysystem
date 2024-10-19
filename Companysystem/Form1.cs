@@ -1,3 +1,4 @@
+using AutoMapper;
 using Companysystem.Clientforms;
 using Companysystem.Models;
 using Companysystem.SalesForms;
@@ -14,33 +15,9 @@ namespace Companysystem
 
 
 
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            string firstName = EmpNameTxt.Text;
 
 
-            // Create a new Employee object
-            Item newItem = new Item
-            {
-                Name = firstName,
-            };
-
-            // Add the new employee to the database or list
-            using (var context = new StoreContext())
-            {
-                context.items.Add(newItem);
-                context.SaveChanges();
-            }
-
-            MessageBox.Show("??? ??????? ????? ");
-        }
-
-        private void Next_Click(object sender, EventArgs e)
-        {
-            CostsAndExpenses c = new CostsAndExpenses();
-            c.Show();
-            Hide();
-        }
+     
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -50,11 +27,25 @@ namespace Companysystem
 
 
         }
-
+        private readonly IMapper mapper;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            SalesForm s = new SalesForm();
+            BillsForms s = new BillsForms( mapper);
             s.Show();
+            Hide();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            ItemsForms.Itemsform itform = new ItemsForms.Itemsform();
+            itform.Show();
+            Hide();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            CostsAndExpenses c = new CostsAndExpenses();
+            c.Show();
             Hide();
         }
     }

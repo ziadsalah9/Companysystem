@@ -31,16 +31,28 @@
             components = new System.ComponentModel.Container();
             dateTimePicker1 = new DateTimePicker();
             listclientsname = new ListBox();
-            button1 = new Button();
+            btnadd = new Button();
             label1 = new Label();
             label2 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            quantitynum = new NumericUpDown();
             label3 = new Label();
             itemBindingSource = new BindingSource(components);
             listBox1 = new ListBox();
             label4 = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            txtprice = new Label();
+            priceNum = new NumericUpDown();
+            discountxt = new Label();
+            discountnum = new NumericUpDown();
+            label7 = new Label();
+            notestxt = new Label();
+            Commissiontxt = new Label();
+            commisionnum = new NumericUpDown();
+            noticestxt = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)quantitynum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)itemBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)priceNum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)discountnum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)commisionnum).BeginInit();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -59,15 +71,15 @@
             listclientsname.TabIndex = 1;
             listclientsname.SelectedIndexChanged += listclientsname_SelectedIndexChanged;
             // 
-            // button1
+            // btnadd
             // 
-            button1.Location = new Point(29, 412);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnadd.Location = new Point(29, 412);
+            btnadd.Name = "btnadd";
+            btnadd.Size = new Size(94, 29);
+            btnadd.TabIndex = 2;
+            btnadd.Text = "أضافة";
+            btnadd.UseVisualStyleBackColor = true;
+            btnadd.Click += button1_Click;
             // 
             // label1
             // 
@@ -91,12 +103,13 @@
             label2.TabIndex = 4;
             label2.Text = "العميل";
             // 
-            // numericUpDown1
+            // quantitynum
             // 
-            numericUpDown1.Location = new Point(442, 352);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(250, 27);
-            numericUpDown1.TabIndex = 5;
+            quantitynum.Location = new Point(442, 352);
+            quantitynum.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            quantitynum.Name = "quantitynum";
+            quantitynum.Size = new Size(250, 27);
+            quantitynum.TabIndex = 5;
             // 
             // label3
             // 
@@ -120,6 +133,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(250, 104);
             listBox1.TabIndex = 7;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -132,25 +146,123 @@
             label4.TabIndex = 8;
             label4.Text = "الصنف";
             // 
+            // txtprice
+            // 
+            txtprice.AutoSize = true;
+            txtprice.Font = new Font("Segoe UI", 12F);
+            txtprice.ForeColor = Color.FromArgb(0, 0, 64);
+            txtprice.Location = new Point(295, 44);
+            txtprice.Name = "txtprice";
+            txtprice.Size = new Size(61, 28);
+            txtprice.TabIndex = 10;
+            txtprice.Text = "السعر";
+            // 
+            // priceNum
+            // 
+            priceNum.Location = new Point(12, 44);
+            priceNum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
+            priceNum.Name = "priceNum";
+            priceNum.Size = new Size(250, 27);
+            priceNum.TabIndex = 9;
+            // 
+            // discountxt
+            // 
+            discountxt.AutoSize = true;
+            discountxt.Font = new Font("Segoe UI", 12F);
+            discountxt.ForeColor = Color.FromArgb(0, 0, 64);
+            discountxt.Location = new Point(295, 141);
+            discountxt.Name = "discountxt";
+            discountxt.Size = new Size(68, 28);
+            discountxt.TabIndex = 12;
+            discountxt.Text = "الخصم";
+            // 
+            // discountnum
+            // 
+            discountnum.Location = new Point(12, 141);
+            discountnum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
+            discountnum.Name = "discountnum";
+            discountnum.Size = new Size(250, 27);
+            discountnum.TabIndex = 11;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.ForeColor = Color.FromArgb(0, 0, 64);
+            label7.Location = new Point(295, 352);
+            label7.Name = "label7";
+            label7.Size = new Size(0, 28);
+            label7.TabIndex = 14;
+            // 
+            // notestxt
+            // 
+            notestxt.AutoSize = true;
+            notestxt.Font = new Font("Segoe UI", 12F);
+            notestxt.ForeColor = Color.FromArgb(0, 0, 64);
+            notestxt.Location = new Point(295, 347);
+            notestxt.Name = "notestxt";
+            notestxt.Size = new Size(100, 28);
+            notestxt.TabIndex = 16;
+            notestxt.Text = "الملاحظات";
+            // 
+            // Commissiontxt
+            // 
+            Commissiontxt.AutoSize = true;
+            Commissiontxt.Font = new Font("Segoe UI", 12F);
+            Commissiontxt.ForeColor = Color.FromArgb(0, 0, 64);
+            Commissiontxt.Location = new Point(295, 248);
+            Commissiontxt.Name = "Commissiontxt";
+            Commissiontxt.Size = new Size(88, 28);
+            Commissiontxt.TabIndex = 18;
+            Commissiontxt.Text = "العمولات";
+            // 
+            // commisionnum
+            // 
+            commisionnum.Location = new Point(12, 249);
+            commisionnum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
+            commisionnum.Name = "commisionnum";
+            commisionnum.Size = new Size(250, 27);
+            commisionnum.TabIndex = 17;
+            // 
+            // noticestxt
+            // 
+            noticestxt.Location = new Point(12, 327);
+            noticestxt.Multiline = true;
+            noticestxt.Name = "noticestxt";
+            noticestxt.Size = new Size(250, 65);
+            noticestxt.TabIndex = 19;
+            // 
             // SalesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(noticestxt);
+            Controls.Add(Commissiontxt);
+            Controls.Add(commisionnum);
+            Controls.Add(notestxt);
+            Controls.Add(label7);
+            Controls.Add(discountxt);
+            Controls.Add(discountnum);
+            Controls.Add(txtprice);
+            Controls.Add(priceNum);
             Controls.Add(label4);
             Controls.Add(listBox1);
             Controls.Add(label3);
-            Controls.Add(numericUpDown1);
+            Controls.Add(quantitynum);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(btnadd);
             Controls.Add(listclientsname);
             Controls.Add(dateTimePicker1);
             Name = "SalesForm";
-            Text = "SalesForm";
+            Text = " ";
             Load += SalesForm_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)quantitynum).EndInit();
             ((System.ComponentModel.ISupportInitialize)itemBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)priceNum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)discountnum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)commisionnum).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,13 +271,22 @@
 
         private DateTimePicker dateTimePicker1;
         private ListBox listclientsname;
-        private Button button1;
+        private Button btnadd;
         private Label label1;
         private Label label2;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown quantitynum;
         private Label label3;
         private BindingSource itemBindingSource;
         private ListBox listBox1;
         private Label label4;
+        private Label txtprice;
+        private NumericUpDown priceNum;
+        private Label discountxt;
+        private NumericUpDown discountnum;
+        private Label label7;
+        private Label notestxt;
+        private Label Commissiontxt;
+        private NumericUpDown commisionnum;
+        private TextBox noticestxt;
     }
 }

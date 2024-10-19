@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CostsAndExpenses));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -54,6 +55,8 @@
             total = new TextBox();
             button4 = new Button();
             button3 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -299,11 +302,23 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(70, 26);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // CostsAndExpenses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 482);
+            Controls.Add(pictureBox1);
             Controls.Add(button3);
             Controls.Add(button4);
             Controls.Add(total);
@@ -333,6 +348,7 @@
             Name = "CostsAndExpenses";
             Text = "CostsAndExpenses";
             Load += CostsAndExpenses_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -365,5 +381,6 @@
         private TextBox total;
         private Button button4;
         private Button button3;
+        private PictureBox pictureBox1;
     }
 }

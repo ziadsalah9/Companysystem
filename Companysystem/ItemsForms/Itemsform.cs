@@ -9,49 +9,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Companysystem.Clientforms
+namespace Companysystem.ItemsForms
 {
-    public partial class ClientForm : Form
+    public partial class Itemsform : Form
     {
-        public ClientForm()
+        public Itemsform()
         {
             InitializeComponent();
         }
 
-        private void btnshowclients_Click(object sender, EventArgs e)
+        private void Btnback_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show();
+            Hide();
+        }
+
+        private void btnShowItem_Click(object sender, EventArgs e)
         {
             using (var context = new StoreContext())
             {
-                var data = context.clients.ToList();
+
+                var data = context.items.ToList();
                 dataGridView1.DataSource = data;
 
             }
         }
 
-        private void btnaddclient_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnaddclient_Click_1(object sender, EventArgs e)
-        {
-            AddClientForm addclient = new AddClientForm();
-            addclient.Show();
-            Hide();
-        }
-
-        private void btnremoveclient_Click(object sender, EventArgs e)
+        private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             using (var context = new StoreContext())
             {
 
+                var olditem = context.items.FirstOrDefault(p => p.Id == deleteitemnum.Value);
 
-
-
-                var old = context.clients.FirstOrDefault(p => p.Id == numericUpDown1.Value);
-                if (old is not null)
+                if (olditem != null)
                 {
-                    context.clients.Remove(old);
+                    context.items.Remove(olditem);
                     context.SaveChanges();
                     MessageBox.Show("تم الحذف بنجاح");
                 }
@@ -59,15 +54,19 @@ namespace Companysystem.Clientforms
                 {
                     MessageBox.Show("من فضلك قم بادخال رقم صحيح");
                 }
-
             }
         }
-
-  
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
+            form.Show();
+            Hide();
+        }
+
+        private void BtnAddItem_Click(object sender, EventArgs e)
+        {
+            AddItemForm form = new AddItemForm();
             form.Show();
             Hide();
         }

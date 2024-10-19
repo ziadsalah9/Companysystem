@@ -13,7 +13,7 @@ namespace Companysystem.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=CompanyV1;Trusted_Connection=True;encrypt= false");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=CompanyV2;Trusted_Connection=True;encrypt= false");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

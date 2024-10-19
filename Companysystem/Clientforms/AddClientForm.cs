@@ -48,22 +48,29 @@ namespace Companysystem.Clientforms
                 //else
                 //{
 
-                    var data = new Client
-                    {
-                        Name = name,
-                       // ClientNo = Guid.NewGuid().ToString(),
-                    };
+                var data = new Client
+                {
+                    Name = name,
+                    // ClientNo = Guid.NewGuid().ToString(),
+                };
 
-                    context.clients.Add(data);
-                    context.SaveChanges();
-                    MessageBox.Show("تمت الاضافة بنجاح");
-                
+                context.clients.Add(data);
+                context.SaveChanges();
+                MessageBox.Show("تمت الاضافة بنجاح");
+
 
 
             }
         }
 
-        private void Backbtn_Click(object sender, EventArgs e)
+     
+
+        private void clientnametxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             ClientForm form = new ClientForm();
             form.Show();
