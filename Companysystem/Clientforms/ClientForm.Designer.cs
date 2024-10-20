@@ -83,6 +83,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(433, 385);
             dataGridView1.TabIndex = 3;
+           // dataGridView1.CellContentClick += this.dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -93,6 +94,7 @@
             label1.Size = new Size(320, 20);
             label1.TabIndex = 4;
             label1.Text = "لحذف العميل من فضلك قم بادخال الرقم التعريفي";
+           // label1.Click += this.label1_Click;
             // 
             // numericUpDown1
             // 
@@ -100,6 +102,7 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(231, 27);
             numericUpDown1.TabIndex = 5;
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // pictureBox1
             // 

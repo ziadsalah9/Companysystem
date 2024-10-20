@@ -1,13 +1,18 @@
 using AutoMapper;
 using Companysystem.Clientforms;
 using Companysystem.Models;
+using Companysystem.PurchasesBillsForm;
 using Companysystem.SalesForms;
+using Companysystem.Supllierforms;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Companysystem
 {
     public partial class Form1 : Form
     {
+
+
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +22,7 @@ namespace Companysystem
 
 
 
-     
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -27,10 +32,9 @@ namespace Companysystem
 
 
         }
-        private readonly IMapper mapper;
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            BillsForms s = new BillsForms( mapper);
+            BillsForms s = new BillsForms();
             s.Show();
             Hide();
         }
@@ -47,6 +51,21 @@ namespace Companysystem
             CostsAndExpenses c = new CostsAndExpenses();
             c.Show();
             Hide();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            var sup = new Supplierform();
+            sup.Show();
+            Hide();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            PurchsesBillForm purchsesBillForm = new PurchsesBillForm();
+            purchsesBillForm.Show();
+            Hide();
+
         }
     }
 }

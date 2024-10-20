@@ -32,8 +32,8 @@ namespace Companysystem
 
 
 
-          //  Application.Run(new Form1());
-           Application.Run(mainForm);
+         // Application.Run(new Form1());
+           Application.Run(main);
 
 
         }

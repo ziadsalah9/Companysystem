@@ -16,7 +16,6 @@ namespace Companysystem.SalesForms
 {
     public partial class BillsForms : Form
     {
-        private readonly IMapper _mapper;
 
         //public BillsForms()
         //{
@@ -24,16 +23,15 @@ namespace Companysystem.SalesForms
 
 
         //}
-        public BillsForms(IMapper mapper)
+        public BillsForms()
         {
             InitializeComponent();
 
-            _mapper = mapper;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            SalesForm s = new SalesForm();
+            AddBillsSalesForm s = new AddBillsSalesForm();
             s.Show();
             Hide();
         }
@@ -43,13 +41,35 @@ namespace Companysystem.SalesForms
             using (var context = new StoreContext())
             {
 
-                var result = context.Salesd.Include(p => p.Client).Include(p => p.Item).ToList();
+                //var result = context.Salesd.Include(p => p.Client).Include(p => p.Item).ToList();
 
-               // Map the result to SalesDto
-               var data = _mapper.Map<IEnumerable<SalesDto>>(result);
+                // Map the result to SalesDto
+                //  var data = _mapper.Map<IEnumerable<SalesDto>>(result);
 
-              //  Bind the mapped data to the DataGridView
-                ShowBilldv.DataSource = data.ToList();
+             //   var data = context.Salesd.ToList();
+                var dataa= context.Salesd
+                         .Include(p => p.Client).Include(p=>p.Item)
+                         .Select(p => new SalesDto
+                         {
+                             quantity = p.quantity,
+                             Price = p.Price,
+                             Date = p.Date,
+                             Client = p.Client.Name,
+                             clientID = p.Client.Id,
+                             deduct = p.deduct,
+                             Commissions = p.Commissions,
+                             month = p.month,
+                             NetPriceValue = p.NetPriceValue,
+                             Notes = p.Notes,
+                             Id = p.Id,
+                             Item = p.Item.Name,
+                             priceValue = p.priceValue,
+                             ItemfkId = p.ItemfkId
+                         })
+                         .ToList();
+
+                //  Bind the mapped data to the DataGridView
+                ShowBilldv.DataSource = dataa.ToList();
 
                 ShowBilldv.Columns["Id"].HeaderText = "ID";
                 ShowBilldv.Columns["month"].HeaderText = "الشهر";

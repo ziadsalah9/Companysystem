@@ -4,6 +4,7 @@ using Companysystem.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Companysystem.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20241020085409_addpurchases")]
+    partial class addpurchases
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,6 +176,9 @@ namespace Companysystem.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ItemfkId")
                         .HasColumnType("int");
 
@@ -202,7 +208,7 @@ namespace Companysystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemfkId");
+                    b.HasIndex("ItemId");
 
                     b.HasIndex("clientID");
 
@@ -249,7 +255,7 @@ namespace Companysystem.Migrations
                 {
                     b.HasOne("Companysystem.Models.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("ItemfkId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

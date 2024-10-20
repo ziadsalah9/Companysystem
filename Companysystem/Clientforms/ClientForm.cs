@@ -63,13 +63,18 @@ namespace Companysystem.Clientforms
             }
         }
 
-  
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
             form.Show();
             Hide();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

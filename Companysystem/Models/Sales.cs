@@ -16,15 +16,18 @@ namespace Companysystem.Models
 
 
 
-        [ForeignKey(nameof(clientID))]
-        public Client Client { get; set; }
+        [ForeignKey(nameof(Client))]
         public int clientID { get; set; }
+
+        public Client Client { get; set; }
         //public string clientName {  get; set; }
 
 
-        [ForeignKey(nameof(ItemfkId))]
-        public Item Item { get; set; }
+        [ForeignKey(nameof(Item))]
         public int ItemfkId { get; set; }
+
+        public Item Item { get; set; }
+
 
 
         public int quantity {  get; set; }
