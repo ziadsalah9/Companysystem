@@ -54,6 +54,9 @@ namespace Companysystem.Clientforms
                     context.clients.Remove(old);
                     context.SaveChanges();
                     MessageBox.Show("تم الحذف بنجاح");
+
+                    var data = context.clients.ToList();
+                    dataGridView1.DataSource = data;
                 }
                 else
                 {
@@ -75,6 +78,16 @@ namespace Companysystem.Clientforms
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ClientForm_Load(object sender, EventArgs e)
+        {
+            using (var context = new StoreContext())
+            {
+
+                var data = context.clients.ToList();
+                dataGridView1.DataSource = data;
+            }
         }
     }
 }

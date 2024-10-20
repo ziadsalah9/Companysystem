@@ -50,6 +50,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // numericUpDown1
             // 
@@ -125,6 +126,7 @@
             Controls.Add(btnaddsupplier);
             Name = "Supplierform";
             Text = "Supplierform";
+            Load += Supplierform_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

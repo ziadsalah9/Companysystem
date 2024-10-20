@@ -126,6 +126,7 @@
             Controls.Add(BtnAddItem);
             Name = "Itemsform";
             Text = "Itemsform";
+            Load += Itemsform_Load;
             ((System.ComponentModel.ISupportInitialize)deleteitemnum).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

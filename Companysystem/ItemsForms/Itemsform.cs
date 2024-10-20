@@ -49,6 +49,9 @@ namespace Companysystem.ItemsForms
                     context.items.Remove(olditem);
                     context.SaveChanges();
                     MessageBox.Show("تم الحذف بنجاح");
+
+                    var data = context.clients.ToList();
+                    dataGridView1.DataSource = data;
                 }
                 else
                 {
@@ -69,6 +72,15 @@ namespace Companysystem.ItemsForms
             AddItemForm form = new AddItemForm();
             form.Show();
             Hide();
+        }
+
+        private void Itemsform_Load(object sender, EventArgs e)
+        {
+            using (var context = new StoreContext())
+            {
+                var data = context.items.ToList();
+                dataGridView1.DataSource = data;
+            }
         }
     }
 }

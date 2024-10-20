@@ -54,12 +54,31 @@ namespace Companysystem.Supllierforms
                     context.Suppliers.Remove(old);
                     context.SaveChanges();
                     MessageBox.Show("تم الحذف بنجاح");
+
+                    var data = context.Suppliers.ToList();
+                    dataGridView1.DataSource = data;
                 }
                 else
                 {
                     MessageBox.Show("من فضلك قم بادخال رقم صحيح");
                 }
 
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            Hide();
+        }
+
+        private void Supplierform_Load(object sender, EventArgs e)
+        {
+            using (var context = new StoreContext())
+            {
+                var data = context.Suppliers.ToList();
+                dataGridView1.DataSource = data;
             }
         }
     }

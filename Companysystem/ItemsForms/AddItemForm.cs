@@ -34,6 +34,10 @@ namespace Companysystem.ItemsForms
                     context.items.Add(data);
                     context.SaveChanges();
                     MessageBox.Show("تمت الاضافة بنجاح");
+                    Itemsform itemsform = new Itemsform();
+                    itemsform.Show();
+                    Hide();
+
                 }
                 else
                 {

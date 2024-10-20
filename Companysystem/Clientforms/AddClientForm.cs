@@ -58,6 +58,10 @@ namespace Companysystem.Clientforms
                 context.SaveChanges();
                 MessageBox.Show("تمت الاضافة بنجاح");
 
+                ClientForm client = new ClientForm();
+                    client.Show();
+                         Hide();
+
 
 
             }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -46,9 +47,9 @@ namespace Companysystem.SalesForms
                 // Map the result to SalesDto
                 //  var data = _mapper.Map<IEnumerable<SalesDto>>(result);
 
-             //   var data = context.Salesd.ToList();
-                var dataa= context.Salesd
-                         .Include(p => p.Client).Include(p=>p.Item)
+                //   var data = context.Salesd.ToList();
+                var dataa = context.Salesd
+                         .Include(p => p.Client).Include(p => p.Item)
                          .Select(p => new SalesDto
                          {
                              quantity = p.quantity,
@@ -73,7 +74,7 @@ namespace Companysystem.SalesForms
 
                 ShowBilldv.Columns["Id"].HeaderText = "رقم الفاتورة";
                 ShowBilldv.Columns["month"].HeaderText = "الشهر";
-                ShowBilldv.Columns["Date"].HeaderText ="التاريخ";
+                ShowBilldv.Columns["Date"].HeaderText = "التاريخ";
                 ShowBilldv.Columns["Client"].HeaderText = "العميل";
                 ShowBilldv.Columns["clientID"].HeaderText = "رقم العميل";
                 ShowBilldv.Columns["item"].HeaderText = "الصنف";
@@ -93,6 +94,57 @@ namespace Companysystem.SalesForms
 
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            using (var context = new StoreContext())
+            {
+
+
+
+
+                var data = context.Salesd.Where(p=>p.Date.Year==Yeardd.Value)
+                                      .Include(p => p.Client).Include(p => p.Item)
+                                      .Select(p => new SalesDto
+                                      {
+                                          quantity = p.quantity,
+                                          Price = p.Price,
+                                          Date = p.Date,
+                                          Client = p.Client.Name,
+                                          clientID = p.Client.Id,
+                                          deduct = p.deduct,
+                                          Commissions = p.Commissions,
+                                          month = p.month,
+                                          NetPriceValue = p.NetPriceValue,
+                                          Notes = p.Notes,
+                                          Id = p.Id,
+                                          Item = p.Item.Name,
+                                          priceValue = p.priceValue,
+                                          ItemfkId = p.ItemfkId
+                                      })
+                                      .ToList();
+
+                if (data.Count()>0)
+                {
+                    ShowBilldv.DataSource = data;
+                }
+
+                else {
+                    ShowBilldv.DataSource = data;
+
+                    MessageBox.Show("لا يوجد بيانات فى هذه السنة");
+                }
+            }
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            Hide();
         }
     }
 }

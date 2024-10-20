@@ -33,6 +33,9 @@ namespace Companysystem.Supllierforms
                 context.SaveChanges();
                 MessageBox.Show("تمت الاضافة بنجاح");
 
+                Supplierform supplierform = new Supplierform();
+                supplierform.Show();
+                Hide();
 
             }
 
