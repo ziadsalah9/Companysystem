@@ -71,7 +71,7 @@ namespace Companysystem.SalesForms
                 //  Bind the mapped data to the DataGridView
                 ShowBilldv.DataSource = dataa.ToList();
 
-                ShowBilldv.Columns["Id"].HeaderText = "ID";
+                ShowBilldv.Columns["Id"].HeaderText = "رقم الفاتورة";
                 ShowBilldv.Columns["month"].HeaderText = "الشهر";
                 ShowBilldv.Columns["Date"].HeaderText ="التاريخ";
                 ShowBilldv.Columns["Client"].HeaderText = "العميل";

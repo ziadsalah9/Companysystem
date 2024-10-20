@@ -41,7 +41,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(684, 112);
+            label1.Location = new Point(684, 127);
             label1.Name = "label1";
             label1.Size = new Size(90, 20);
             label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(684, 48);
+            pictureBox1.Location = new Point(684, 61);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(90, 40);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
