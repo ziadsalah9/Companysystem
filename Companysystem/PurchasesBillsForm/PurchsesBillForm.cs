@@ -1,5 +1,8 @@
-﻿using Companysystem.Dtos;
+﻿using Companysystem.Clientforms;
+using Companysystem.Dtos;
+using Companysystem.ItemsForms;
 using Companysystem.Models;
+using Companysystem.SalesForms;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,9 +19,12 @@ namespace Companysystem.PurchasesBillsForm
 {
     public partial class PurchsesBillForm : Form
     {
+        private readonly StoreContext context;
         public PurchsesBillForm()
         {
             InitializeComponent();
+            context = new StoreContext();
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -30,9 +36,36 @@ namespace Companysystem.PurchasesBillsForm
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddPurchasesBill addPurchasesBill = new AddPurchasesBill();
-            addPurchasesBill.Show();
-            Hide();
+
+            var suppliers = context.Suppliers.ToList();
+            var items = context.items.ToList();
+
+            if (suppliers.Count() <= 0)
+            {
+                MessageBox.Show("لا يوجد موردين, من فضلك قم بالاضافة");
+                AddClientForm f = new AddClientForm();
+                f.Show();
+                Hide();
+
+            }
+
+            else if (items.Count() <= 0)
+            {
+                MessageBox.Show("لا يوجد أصناف, من فضلك قم بالاضافة");
+                AddItemForm af = new AddItemForm();
+                af.Show();
+
+                Hide();
+
+            }
+            else
+            {
+
+                AddPurchasesBill addPurchasesBill = new AddPurchasesBill();
+                addPurchasesBill.Show();
+                Hide();
+            }
+
         }
 
         private void PurchsesBillForm_Load(object sender, EventArgs e)

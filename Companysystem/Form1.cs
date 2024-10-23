@@ -3,6 +3,7 @@ using Companysystem.Clientforms;
 using Companysystem.Models;
 using Companysystem.PurchasesBillsForm;
 using Companysystem.SalesForms;
+using Companysystem.StoreForm;
 using Companysystem.Supllierforms;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -66,6 +67,13 @@ namespace Companysystem
             purchsesBillForm.Show();
             Hide();
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            UpdateStore storeForm = new UpdateStore();
+            storeForm.Show();
+            Hide() ;    
         }
     }
 }

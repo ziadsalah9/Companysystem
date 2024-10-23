@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Companysystem.Clientforms;
 using Companysystem.Dtos;
+using Companysystem.ItemsForms;
 using Companysystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,17 +26,44 @@ namespace Companysystem.SalesForms
 
 
         //}
+
+        private readonly StoreContext context;
         public BillsForms()
         {
             InitializeComponent();
-
+            context = new StoreContext();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddBillsSalesForm s = new AddBillsSalesForm();
-            s.Show();
-            Hide();
+            var clients = context.clients.ToList();
+            var items = context.items.ToList();
+
+            if (clients.Count() <= 0)
+            {
+                MessageBox.Show("لا يوجد عملاء, من فضلك قم باضافة عميل");
+                AddClientForm f = new AddClientForm();
+                f.Show();
+                Hide();
+
+            }
+
+            else if (items.Count() <= 0)
+            {
+                MessageBox.Show("لا يوجد أصناف, من فضلك قم بالاضافة");
+                AddItemForm af = new AddItemForm();
+                af.Show();
+
+                Hide();
+
+            }
+            else
+            {
+
+                AddBillsSalesForm s = new AddBillsSalesForm();
+                s.Show();
+                Hide();
+            }
         }
 
         private void BillsForms_Load(object sender, EventArgs e)
@@ -142,9 +171,15 @@ namespace Companysystem.SalesForms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
-            Hide();
+
+
+            
+             
+               
+                Form1 form1 = new Form1();
+                form1.Show();
+                Hide();
+            
         }
     }
 }

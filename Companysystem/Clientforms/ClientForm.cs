@@ -13,10 +13,19 @@ namespace Companysystem.Clientforms
 {
     public partial class ClientForm : Form
     {
+        Responsive ResponsiveObj;
+
         public ClientForm()
         {
             InitializeComponent();
+            //ResponsiveObj = new Responsive(Screen.PrimaryScreen.Bounds);
+            //ResponsiveObj.SetMultiplicationFactor();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+
         }
+
+
 
         private void btnshowclients_Click(object sender, EventArgs e)
         {
@@ -82,6 +91,21 @@ namespace Companysystem.Clientforms
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
+
+            //Width = ResponsiveObj.GetMetrics(Width, "Width");           // Form width and height set up.
+            //Height = ResponsiveObj.GetMetrics(Height, "Height");
+            //Left = Screen.GetBounds(this).Width / 2 - Width / 2;        // Form centering.
+            //Top = Screen.GetBounds(this).Height / 2 - Height / 2 - 30;  // 30 is a calibration factor.
+
+            //foreach (Control Ctl in this.Controls)
+            //{
+            //    Ctl.Font = new Font(FontFamily.GenericSansSerif,
+            //               ResponsiveObj.GetMetrics((int)Ctl.Font.Size), FontStyle.Regular);
+            //    Ctl.Width = ResponsiveObj.GetMetrics(Ctl.Width, "Width");
+            //    Ctl.Height = ResponsiveObj.GetMetrics(Ctl.Height, "Height");
+            //    Ctl.Top = ResponsiveObj.GetMetrics(Ctl.Top, "Top");
+            //    Ctl.Left = ResponsiveObj.GetMetrics(Ctl.Left, "Left");
+            //}
             using (var context = new StoreContext())
             {
 

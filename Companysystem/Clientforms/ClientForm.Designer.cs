@@ -43,8 +43,10 @@
             // 
             // btnaddclient
             // 
+            btnaddclient.Anchor = AnchorStyles.None;
+            btnaddclient.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnaddclient.Font = new Font("Segoe UI", 12F);
-            btnaddclient.Location = new Point(521, 53);
+            btnaddclient.Location = new Point(617, 105);
             btnaddclient.Name = "btnaddclient";
             btnaddclient.Size = new Size(231, 56);
             btnaddclient.TabIndex = 0;
@@ -54,8 +56,9 @@
             // 
             // btnshowclients
             // 
+            btnshowclients.Anchor = AnchorStyles.None;
             btnshowclients.Font = new Font("Segoe UI", 12F);
-            btnshowclients.Location = new Point(521, 160);
+            btnshowclients.Location = new Point(619, 219);
             btnshowclients.Name = "btnshowclients";
             btnshowclients.Size = new Size(231, 56);
             btnshowclients.TabIndex = 1;
@@ -65,8 +68,9 @@
             // 
             // btnremoveclient
             // 
+            btnremoveclient.Anchor = AnchorStyles.None;
             btnremoveclient.Font = new Font("Segoe UI", 12F);
-            btnremoveclient.Location = new Point(521, 368);
+            btnremoveclient.Location = new Point(619, 489);
             btnremoveclient.Name = "btnremoveclient";
             btnremoveclient.Size = new Size(231, 56);
             btnremoveclient.TabIndex = 2;
@@ -77,18 +81,21 @@
             // dataGridView1
             // 
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.None;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 53);
+            dataGridView1.Location = new Point(23, 107);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(433, 385);
+            dataGridView1.Size = new Size(481, 440);
             dataGridView1.TabIndex = 3;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.ForeColor = Color.LimeGreen;
-            label1.Location = new Point(468, 280);
+            label1.Location = new Point(566, 352);
             label1.Name = "label1";
             label1.Size = new Size(320, 20);
             label1.TabIndex = 4;
@@ -96,7 +103,8 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(521, 323);
+            numericUpDown1.Anchor = AnchorStyles.None;
+            numericUpDown1.Location = new Point(619, 413);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(231, 27);
             numericUpDown1.TabIndex = 5;
@@ -104,8 +112,9 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 1);
+            pictureBox1.Location = new Point(23, 26);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(68, 37);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -117,7 +126,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(949, 573);
             Controls.Add(pictureBox1);
             Controls.Add(numericUpDown1);
             Controls.Add(label1);
@@ -125,8 +134,12 @@
             Controls.Add(btnremoveclient);
             Controls.Add(btnshowclients);
             Controls.Add(btnaddclient);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(967, 620);
+            MinimumSize = new Size(967, 620);
             Name = "ClientForm";
             Text = "صفحة العملاء";
+            WindowState = FormWindowState.Maximized;
             Load += ClientForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();

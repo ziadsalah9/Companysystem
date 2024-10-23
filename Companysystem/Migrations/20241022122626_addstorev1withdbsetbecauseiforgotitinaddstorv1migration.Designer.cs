@@ -4,6 +4,7 @@ using Companysystem.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Companysystem.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20241022122626_addstorev1withdbsetbecauseiforgotitinaddstorv1migration")]
+    partial class addstorev1withdbsetbecauseiforgotitinaddstorv1migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,35 +220,15 @@ namespace Companysystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BeginingStore")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EndingStore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("InventoryCost")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("PurchasesBillId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("incoming")
-                        .HasColumnType("int");
-
-                    b.Property<int>("outgoing")
                         .HasColumnType("int");
 
                     b.Property<decimal>("price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("salesid")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PurchasesBillId");
-
-                    b.HasIndex("salesid");
 
                     b.ToTable("Stores");
                 });
@@ -313,15 +296,7 @@ namespace Companysystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Companysystem.Models.Sales", "Sales")
-                        .WithMany()
-                        .HasForeignKey("salesid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("PurchasesBill");
-
-                    b.Navigation("Sales");
                 });
 #pragma warning restore 612, 618
         }

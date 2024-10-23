@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Companysystem.Clientforms;
+using Companysystem.ItemsForms;
 using Companysystem.Models;
 using System;
 using System.Collections.Generic;
@@ -23,9 +25,16 @@ namespace Companysystem.SalesForms
             
         }
 
+
+
         private void AddBillsSalesForm_Load(object sender, EventArgs e)
         {
+
+            
+            
             var clients = context.clients.ToList();
+
+            
             listclientsname.DataSource = clients;
             listclientsname.DisplayMember = "Name";
             listclientsname.ValueMember = "Id";
@@ -36,8 +45,27 @@ namespace Companysystem.SalesForms
             listitemsname.ValueMember = "Id";
 
 
+
             listclientsname.SelectedIndexChanged += listclientsname_SelectedIndexChanged;
             listitemsname.SelectedIndexChanged += listitemsname_SelectedIndexChanged;
+
+
+            if (clients.Count()<=0)
+            {
+                MessageBox.Show("لا يوجد عملاء, من فضلك قم باضافة عميل");
+                AddClientForm f = new AddClientForm();
+                f.Show();
+               
+            }
+
+            if (items.Count() <= 0)
+            {
+                MessageBox.Show("لا يوجد أصناف, من فضلك قم بالاضافة");
+                AddItemForm af = new AddItemForm();
+                af.Show();
+                Hide();
+
+            }
         }
 
         private void listclientsname_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,8 +106,11 @@ namespace Companysystem.SalesForms
 
                 };
 
+
+
                 context.Salesd.Add(sale);
                 context.SaveChanges();
+
 
                 var billsfor = new BillsForms();
                 billsfor.Show();

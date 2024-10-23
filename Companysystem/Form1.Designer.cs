@@ -42,6 +42,7 @@
             label6 = new Label();
             pictureBox6 = new PictureBox();
             label7 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -186,11 +187,22 @@
             label7.TabIndex = 16;
             label7.Text = "فواتير المشتريات";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(554, 472);
+            label8.Name = "label8";
+            label8.Size = new Size(50, 20);
+            label8.TabIndex = 17;
+            label8.Text = "label8";
+            label8.Click += label8_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(899, 515);
+            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(pictureBox6);
             Controls.Add(label6);
@@ -230,5 +242,6 @@
         private Label label6;
         private PictureBox pictureBox6;
         private Label label7;
+        private Label label8;
     }
 }

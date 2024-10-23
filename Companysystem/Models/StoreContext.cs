@@ -31,6 +31,7 @@ namespace Companysystem.Models
 
         public DbSet<Purchases> Purchases { get; set; }
 
+        public DbSet<Store> Stores { get; set; }
 
     }
 }

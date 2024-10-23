@@ -18,6 +18,7 @@ namespace Companysystem.PurchasesBillsForm
         {
             InitializeComponent();
             context = new StoreContext();
+            
         }
 
 
@@ -55,6 +56,9 @@ namespace Companysystem.PurchasesBillsForm
 
                 var value = priceNum.Value*quantitynum.Value;
 
+                var netpricevalue = value - (discountnum.Value) + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value)
+                    ;
+
 
                 var data = new Purchases
                 {
@@ -71,17 +75,36 @@ namespace Companysystem.PurchasesBillsForm
                     TransportAndShipping = transportandshippingnum.Value,
                     Customs = CustomsNum.Value,
                     others = OtherNum.Value,
-                    NetPriceValue = value - (discountnum.Value + transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value),
-                    priceUnit = unitnum.Value,
+                    NetPriceValue = value - (discountnum.Value) + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value),
+                    priceUnit = ((decimal)Math.Pow(Convert.ToDouble(quantitynum.Value),-1.00)) * netpricevalue
 
                 };
 
 
-               
+
+            
 
                 context.Purchases.Add(data);
-                context.SaveChanges();  
+                context.SaveChanges();
+//                var Endst = context.Stores.OrderBy(p=>p.Id).LastOrDefault();
 
+                var store = new Store
+                {
+                    PurchasesBillId = data.Id,
+                    price = data.Price * 1.5m,
+                    incoming = data.quantity,
+                    //BeginingStore =Endst.EndingStore,
+                   
+                  //  EndingStore = Endst.EndingStore+data.quantity,
+                    InventoryCost = 50,
+                    
+                    
+                    
+                }; 
+                context.Stores.Add(store);
+                context.SaveChanges();
+
+                MessageBox.Show("تمت الاضافة بنجاح");
 
 
             }
