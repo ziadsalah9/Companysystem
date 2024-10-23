@@ -48,13 +48,14 @@ namespace Companysystem.PurchasesBillsForm
         private void btnadd_Click(object sender, EventArgs e)
         {
 
-            using (var context = new StoreContext()) {
+            using (var context = new StoreContext())
+            {
 
 
                 int selectedId = (int)listsuppliersname.SelectedValue;
                 int itemfk = (int)listitemsname.SelectedValue;
 
-                var value = priceNum.Value*quantitynum.Value;
+                var value = priceNum.Value * quantitynum.Value;
 
                 var netpricevalue = value - (discountnum.Value) + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value)
                     ;
@@ -76,39 +77,62 @@ namespace Companysystem.PurchasesBillsForm
                     Customs = CustomsNum.Value,
                     others = OtherNum.Value,
                     NetPriceValue = value - (discountnum.Value) + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value),
-                    priceUnit = ((decimal)Math.Pow(Convert.ToDouble(quantitynum.Value),-1.00)) * netpricevalue
+                    priceUnit = ((decimal)Math.Pow(Convert.ToDouble(quantitynum.Value), -1.00)) * netpricevalue
 
                 };
 
 
 
-            
+
 
                 context.Purchases.Add(data);
                 context.SaveChanges();
-//                var Endst = context.Stores.OrderBy(p=>p.Id).LastOrDefault();
+                var Endst = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == listsuppliersname.SelectedItem);
 
-                var store = new Store
+                if (Endst is null)
                 {
-                    PurchasesBillId = data.Id,
-                    price = data.Price * 1.5m,
-                    incoming = data.quantity,
-                    //BeginingStore =Endst.EndingStore,
-                   
-                  //  EndingStore = Endst.EndingStore+data.quantity,
-                    InventoryCost = 50,
-                    
-                    
-                    
-                }; 
-                context.Stores.Add(store);
-                context.SaveChanges();
+                    var store = new Store
+                    {
+                        PurchasesBillId = data.Id,
+                        item = data.Item.Name,
+                        price = data.Price * 1.5m,
+                        incoming = data.quantity,
+                        BeginingStore =0,
 
-                MessageBox.Show("تمت الاضافة بنجاح");
+                        EndingStore = Endst.EndingStore+data.quantity,
+                        InventoryCost = 50,
 
 
+
+                    };
+                    context.Stores.Add(store);
+                    context.SaveChanges();
+
+                    MessageBox.Show("تمت الاضافة بنجاح");
+
+
+                }
+                else
+                {
+                    var store = new Store
+                    {
+                        PurchasesBillId = data.Id,
+                        item = data.Item.Name,
+                        price = data.Price * 1.5m,
+                        incoming = data.quantity,
+                        BeginingStore = Endst.BeginingStore,
+
+                        EndingStore = Endst.EndingStore + data.quantity,
+                        InventoryCost = 50,
+
+
+
+                    };
+                    context.Stores.Add(store);
+                    context.SaveChanges();
+
+                }
             }
-
 
 
 

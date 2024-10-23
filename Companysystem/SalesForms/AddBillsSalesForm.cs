@@ -108,8 +108,61 @@ namespace Companysystem.SalesForms
 
 
 
+
+
                 context.Salesd.Add(sale);
                 context.SaveChanges();
+
+                //   var checkqnatity = context.Stores.OrderByDescending(p=>p.Id).FirstOrDefault(p=>p.PurchasesBill.Item == sale.Item);
+                var checkqnatity = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == sale.Item.Name);
+
+                if (checkqnatity != null) {
+                    if (sale.quantity <= checkqnatity.EndingStore)
+                    {
+
+                        var data = new Store
+                        {
+                            salesid = sale.Id,
+                            outgoing = sale.quantity,
+                            //PurchasesBillId =checkqnatity.PurchasesBillId,
+                            price = checkqnatity.price,
+                            BeginingStore = checkqnatity.EndingStore,
+                            EndingStore = 0,
+                            InventoryCost = checkqnatity.InventoryCost,
+                            item = sale.Item.Name
+
+                        };
+                        context.Stores.Add(data);
+                        context.SaveChanges();
+                    }
+
+                    else
+                    {
+                        var data = new Store
+                        {
+                            salesid = sale.Id,
+                            outgoing = sale.quantity,
+                            //PurchasesBillId =checkqnatity.PurchasesBillId,
+                            price = checkqnatity.price,
+                            BeginingStore = checkqnatity.EndingStore,
+                            EndingStore = checkqnatity.EndingStore - sale.quantity,
+                            InventoryCost = checkqnatity.InventoryCost,
+                            item = sale.Item.Name
+
+                        };
+
+                        context.Stores.Add(data);
+                        //       MessageBox.Show($"{checkqnatity.EndingStore} ومتبقى{data.item} من ال {sale.quantity-checkqnatity.EndingStore}لا يوجد كمية كافية فى المخزن قد تم بيع   ");
+
+                        MessageBox.Show($"{sale.quantity - checkqnatity.EndingStore}لا يوجد كمية كافية فى المخزن . لقد تم بيع");
+                        context.SaveChanges();
+                    }
+            }
+                else
+                {
+                    MessageBox.Show("لا يوجد هذا الصنف فى المخزن");
+                }
+
 
 
                 var billsfor = new BillsForms();

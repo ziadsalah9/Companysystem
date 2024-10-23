@@ -61,6 +61,19 @@ namespace Companysystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Suppliers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Suppliers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Salesd",
                 columns: table => new
                 {
@@ -95,6 +108,85 @@ namespace Companysystem.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Purchases",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    month = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SupplierId = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PriceValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    deduct = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TransportAndShipping = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Customs = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    others = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NetPriceValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    priceUnit = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Purchases", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Purchases_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Purchases_items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "items",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Stores",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PurchasesBillId = table.Column<int>(type: "int", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    BeginingStore = table.Column<int>(type: "int", nullable: false),
+                    incoming = table.Column<int>(type: "int", nullable: false),
+                    outgoing = table.Column<int>(type: "int", nullable: false),
+                    EndingStore = table.Column<int>(type: "int", nullable: false),
+                    InventoryCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    salesid = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Stores", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Stores_Purchases_PurchasesBillId",
+                        column: x => x.PurchasesBillId,
+                        principalTable: "Purchases",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Stores_Salesd_salesid",
+                        column: x => x.salesid,
+                        principalTable: "Salesd",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Purchases_ItemId",
+                table: "Purchases",
+                column: "ItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Purchases_SupplierId",
+                table: "Purchases",
+                column: "SupplierId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Salesd_clientID",
                 table: "Salesd",
@@ -104,6 +196,16 @@ namespace Companysystem.Migrations
                 name: "IX_Salesd_ItemfkId",
                 table: "Salesd",
                 column: "ItemfkId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stores_PurchasesBillId",
+                table: "Stores",
+                column: "PurchasesBillId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stores_salesid",
+                table: "Stores",
+                column: "salesid");
         }
 
         /// <inheritdoc />
@@ -113,7 +215,16 @@ namespace Companysystem.Migrations
                 name: "CostsAndExpensesModels");
 
             migrationBuilder.DropTable(
+                name: "Stores");
+
+            migrationBuilder.DropTable(
+                name: "Purchases");
+
+            migrationBuilder.DropTable(
                 name: "Salesd");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
 
             migrationBuilder.DropTable(
                 name: "clients");

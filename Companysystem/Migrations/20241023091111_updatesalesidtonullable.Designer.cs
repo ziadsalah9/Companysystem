@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Companysystem.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20241023083612_addsalestostore")]
-    partial class addsalestostore
+    [Migration("20241023091111_updatesalesidtonullable")]
+    partial class updatesalesidtonullable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace Companysystem.Migrations
                     b.Property<decimal>("price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("salesid")
+                    b.Property<int?>("salesid")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -319,8 +319,7 @@ namespace Companysystem.Migrations
                     b.HasOne("Companysystem.Models.Sales", "Sales")
                         .WithMany()
                         .HasForeignKey("salesid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("PurchasesBill");
 

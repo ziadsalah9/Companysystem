@@ -226,11 +226,15 @@ namespace Companysystem.Migrations
                     b.Property<decimal>("InventoryCost")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("PurchasesBillId")
+                    b.Property<int?>("PurchasesBillId")
                         .HasColumnType("int");
 
                     b.Property<int>("incoming")
                         .HasColumnType("int");
+
+                    b.Property<string>("item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("outgoing")
                         .HasColumnType("int");
@@ -238,7 +242,7 @@ namespace Companysystem.Migrations
                     b.Property<decimal>("price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("salesid")
+                    b.Property<int?>("salesid")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -309,15 +313,12 @@ namespace Companysystem.Migrations
                 {
                     b.HasOne("Companysystem.Models.Purchases", "PurchasesBill")
                         .WithMany()
-                        .HasForeignKey("PurchasesBillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PurchasesBillId");
 
                     b.HasOne("Companysystem.Models.Sales", "Sales")
                         .WithMany()
                         .HasForeignKey("salesid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("PurchasesBill");
 

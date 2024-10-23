@@ -1,5 +1,4 @@
-﻿using Companysystem.Migrations;
-using Companysystem.Models;
+﻿using Companysystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
