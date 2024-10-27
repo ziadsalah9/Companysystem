@@ -45,7 +45,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(684, 134);
+            label1.Location = new Point(962, 66);
             label1.Name = "label1";
             label1.Size = new Size(90, 20);
             label1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(684, 80);
+            pictureBox1.Location = new Point(962, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(90, 40);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -65,7 +65,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Location = new Point(0, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(73, 39);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -77,16 +77,16 @@
             // 
             ShowBilldv.AllowUserToDeleteRows = false;
             ShowBilldv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ShowBilldv.Location = new Point(39, 177);
+            ShowBilldv.Location = new Point(12, 234);
             ShowBilldv.Name = "ShowBilldv";
             ShowBilldv.ReadOnly = true;
             ShowBilldv.RowHeadersWidth = 51;
-            ShowBilldv.Size = new Size(735, 244);
+            ShowBilldv.Size = new Size(1027, 296);
             ShowBilldv.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(39, 130);
+            button1.Location = new Point(12, 163);
             button1.Name = "button1";
             button1.Size = new Size(103, 29);
             button1.TabIndex = 7;
@@ -96,7 +96,7 @@
             // 
             // Yeardd
             // 
-            Yeardd.Location = new Point(39, 80);
+            Yeardd.Location = new Point(12, 113);
             Yeardd.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
             Yeardd.Name = "Yeardd";
             Yeardd.Size = new Size(171, 27);
@@ -106,7 +106,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(240, 79);
+            label2.Location = new Point(213, 112);
             label2.Name = "label2";
             label2.Size = new Size(103, 28);
             label2.TabIndex = 11;
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(818, 450);
+            ClientSize = new Size(1064, 542);
             Controls.Add(label2);
             Controls.Add(Yeardd);
             Controls.Add(button1);
@@ -124,6 +124,9 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1082, 589);
+            MinimumSize = new Size(1082, 589);
             Name = "BillsForms";
             Text = "BillsForms";
             Load += BillsForms_Load;

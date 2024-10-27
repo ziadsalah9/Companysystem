@@ -69,11 +69,20 @@ namespace Companysystem
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
+     
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+        }
+
+        private void storeButton_Click(object sender, EventArgs e)
         {
             UpdateStore storeForm = new UpdateStore();
             storeForm.Show();
-            Hide() ;    
+            Hide();
+
         }
     }
 }

@@ -30,5 +30,7 @@ namespace Companysystem.Dtos
         public int EndingStore { get; set; }
 
         public decimal InventoryCost { get; set; }
+
+      
     }
 }

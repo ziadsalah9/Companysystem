@@ -44,7 +44,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(8, 7);
+            pictureBox1.Location = new Point(3, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(68, 37);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -54,7 +54,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(526, 329);
+            numericUpDown1.Location = new Point(905, 454);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(231, 27);
             numericUpDown1.TabIndex = 13;
@@ -63,7 +63,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.LimeGreen;
-            label1.Location = new Point(473, 286);
+            label1.Location = new Point(860, 409);
             label1.Name = "label1";
             label1.Size = new Size(317, 20);
             label1.TabIndex = 12;
@@ -73,16 +73,16 @@
             // 
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 59);
+            dataGridView1.Location = new Point(12, 55);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(433, 385);
+            dataGridView1.Size = new Size(654, 503);
             dataGridView1.TabIndex = 11;
             // 
             // btnremovesup
             // 
             btnremovesup.Font = new Font("Segoe UI", 12F);
-            btnremovesup.Location = new Point(526, 374);
+            btnremovesup.Location = new Point(905, 502);
             btnremovesup.Name = "btnremovesup";
             btnremovesup.Size = new Size(231, 56);
             btnremovesup.TabIndex = 10;
@@ -93,7 +93,7 @@
             // btnshowsuppliers
             // 
             btnshowsuppliers.Font = new Font("Segoe UI", 12F);
-            btnshowsuppliers.Location = new Point(526, 166);
+            btnshowsuppliers.Location = new Point(905, 229);
             btnshowsuppliers.Name = "btnshowsuppliers";
             btnshowsuppliers.Size = new Size(231, 56);
             btnshowsuppliers.TabIndex = 9;
@@ -104,7 +104,7 @@
             // btnaddsupplier
             // 
             btnaddsupplier.Font = new Font("Segoe UI", 12F);
-            btnaddsupplier.Location = new Point(526, 59);
+            btnaddsupplier.Location = new Point(905, 55);
             btnaddsupplier.Name = "btnaddsupplier";
             btnaddsupplier.Size = new Size(231, 56);
             btnaddsupplier.TabIndex = 8;
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1189, 581);
             Controls.Add(pictureBox1);
             Controls.Add(numericUpDown1);
             Controls.Add(label1);
@@ -124,6 +124,9 @@
             Controls.Add(btnremovesup);
             Controls.Add(btnshowsuppliers);
             Controls.Add(btnaddsupplier);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1207, 628);
+            MinimumSize = new Size(1207, 628);
             Name = "Supplierform";
             Text = "Supplierform";
             Load += Supplierform_Load;

@@ -42,17 +42,17 @@
             // 
             ShowBilldv.AllowUserToDeleteRows = false;
             ShowBilldv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ShowBilldv.Location = new Point(46, 186);
+            ShowBilldv.Location = new Point(12, 234);
             ShowBilldv.Name = "ShowBilldv";
             ShowBilldv.ReadOnly = true;
             ShowBilldv.RowHeadersWidth = 51;
-            ShowBilldv.Size = new Size(735, 244);
+            ShowBilldv.Size = new Size(1027, 296);
             ShowBilldv.TabIndex = 7;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(19, 21);
+            pictureBox2.Location = new Point(12, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(73, 39);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -63,7 +63,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(691, 57);
+            pictureBox1.Location = new Point(949, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(90, 40);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -74,7 +74,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(691, 121);
+            label1.Location = new Point(949, 76);
             label1.Name = "label1";
             label1.Size = new Size(90, 20);
             label1.TabIndex = 4;
@@ -84,11 +84,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1064, 542);
             Controls.Add(ShowBilldv);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1082, 589);
+            MinimumSize = new Size(1082, 589);
             Name = "PurchsesBillForm";
             Text = "PurchsesBillForm";
             Load += PurchsesBillForm_Load;

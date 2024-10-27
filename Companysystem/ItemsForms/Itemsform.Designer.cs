@@ -44,7 +44,7 @@
             // BtnAddItem
             // 
             BtnAddItem.Font = new Font("Segoe UI", 12F);
-            BtnAddItem.Location = new Point(538, 51);
+            BtnAddItem.Location = new Point(905, 55);
             BtnAddItem.Name = "BtnAddItem";
             BtnAddItem.Size = new Size(227, 53);
             BtnAddItem.TabIndex = 0;
@@ -55,7 +55,7 @@
             // btnShowItem
             // 
             btnShowItem.Font = new Font("Segoe UI", 12F);
-            btnShowItem.Location = new Point(538, 159);
+            btnShowItem.Location = new Point(905, 229);
             btnShowItem.Name = "btnShowItem";
             btnShowItem.Size = new Size(227, 57);
             btnShowItem.TabIndex = 1;
@@ -66,7 +66,7 @@
             // btnDeleteItem
             // 
             btnDeleteItem.Font = new Font("Segoe UI", 12F);
-            btnDeleteItem.Location = new Point(538, 381);
+            btnDeleteItem.Location = new Point(905, 501);
             btnDeleteItem.Name = "btnDeleteItem";
             btnDeleteItem.Size = new Size(227, 57);
             btnDeleteItem.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             // deleteitemnum
             // 
-            deleteitemnum.Location = new Point(534, 332);
+            deleteitemnum.Location = new Point(905, 454);
             deleteitemnum.Name = "deleteitemnum";
             deleteitemnum.Size = new Size(231, 27);
             deleteitemnum.TabIndex = 7;
@@ -85,7 +85,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.LimeGreen;
-            label1.Location = new Point(468, 296);
+            label1.Location = new Point(857, 406);
             label1.Name = "label1";
             label1.Size = new Size(320, 20);
             label1.TabIndex = 6;
@@ -95,16 +95,16 @@
             // 
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 51);
+            dataGridView1.Location = new Point(12, 55);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(433, 384);
+            dataGridView1.Size = new Size(654, 503);
             dataGridView1.TabIndex = 8;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, -1);
+            pictureBox1.Location = new Point(3, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(68, 37);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1189, 581);
             Controls.Add(pictureBox1);
             Controls.Add(dataGridView1);
             Controls.Add(deleteitemnum);
@@ -124,6 +124,9 @@
             Controls.Add(btnDeleteItem);
             Controls.Add(btnShowItem);
             Controls.Add(BtnAddItem);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1207, 628);
+            MinimumSize = new Size(1207, 628);
             Name = "Itemsform";
             Text = "Itemsform";
             Load += Itemsform_Load;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPurchasesBill));
             Commissiontxt = new Label();
             transportandshippingnum = new NumericUpDown();
             label7 = new Label();
@@ -50,6 +51,7 @@
             CustomsNum = new NumericUpDown();
             label6 = new Label();
             OtherNum = new NumericUpDown();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)transportandshippingnum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)discountnum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)priceNum).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)quantitynum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CustomsNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OtherNum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // Commissiontxt
@@ -64,7 +67,7 @@
             Commissiontxt.AutoSize = true;
             Commissiontxt.Font = new Font("Segoe UI", 12F);
             Commissiontxt.ForeColor = Color.FromArgb(0, 0, 64);
-            Commissiontxt.Location = new Point(354, 200);
+            Commissiontxt.Location = new Point(352, 215);
             Commissiontxt.Name = "Commissiontxt";
             Commissiontxt.Size = new Size(99, 28);
             Commissiontxt.TabIndex = 36;
@@ -72,7 +75,7 @@
             // 
             // transportandshippingnum
             // 
-            transportandshippingnum.Location = new Point(80, 205);
+            transportandshippingnum.Location = new Point(78, 220);
             transportandshippingnum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             transportandshippingnum.Name = "transportandshippingnum";
             transportandshippingnum.Size = new Size(250, 27);
@@ -83,7 +86,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
             label7.ForeColor = Color.FromArgb(0, 0, 64);
-            label7.Location = new Point(363, 357);
+            label7.Location = new Point(361, 372);
             label7.Name = "label7";
             label7.Size = new Size(0, 28);
             label7.TabIndex = 33;
@@ -93,7 +96,7 @@
             discountxt.AutoSize = true;
             discountxt.Font = new Font("Segoe UI", 12F);
             discountxt.ForeColor = Color.FromArgb(0, 0, 64);
-            discountxt.Location = new Point(363, 112);
+            discountxt.Location = new Point(361, 127);
             discountxt.Name = "discountxt";
             discountxt.Size = new Size(68, 28);
             discountxt.TabIndex = 32;
@@ -101,7 +104,7 @@
             // 
             // discountnum
             // 
-            discountnum.Location = new Point(80, 117);
+            discountnum.Location = new Point(78, 132);
             discountnum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             discountnum.Name = "discountnum";
             discountnum.Size = new Size(250, 27);
@@ -112,7 +115,7 @@
             txtprice.AutoSize = true;
             txtprice.Font = new Font("Segoe UI", 12F);
             txtprice.ForeColor = Color.FromArgb(0, 0, 64);
-            txtprice.Location = new Point(363, 49);
+            txtprice.Location = new Point(361, 64);
             txtprice.Name = "txtprice";
             txtprice.Size = new Size(61, 28);
             txtprice.TabIndex = 30;
@@ -120,7 +123,7 @@
             // 
             // priceNum
             // 
-            priceNum.Location = new Point(83, 52);
+            priceNum.Location = new Point(81, 67);
             priceNum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             priceNum.Name = "priceNum";
             priceNum.Size = new Size(250, 27);
@@ -131,7 +134,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.Location = new Point(1020, 259);
+            label4.Location = new Point(1018, 274);
             label4.Name = "label4";
             label4.Size = new Size(71, 28);
             label4.TabIndex = 28;
@@ -144,7 +147,7 @@
             // listitemsname
             // 
             listitemsname.FormattingEnabled = true;
-            listitemsname.Location = new Point(715, 229);
+            listitemsname.Location = new Point(713, 244);
             listitemsname.Name = "listitemsname";
             listitemsname.Size = new Size(250, 104);
             listitemsname.TabIndex = 27;
@@ -155,7 +158,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.FromArgb(0, 0, 64);
-            label3.Location = new Point(1028, 358);
+            label3.Location = new Point(1026, 373);
             label3.Name = "label3";
             label3.Size = new Size(63, 28);
             label3.TabIndex = 26;
@@ -163,7 +166,7 @@
             // 
             // quantitynum
             // 
-            quantitynum.Location = new Point(715, 357);
+            quantitynum.Location = new Point(713, 372);
             quantitynum.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             quantitynum.Name = "quantitynum";
             quantitynum.Size = new Size(250, 27);
@@ -174,7 +177,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
-            label2.Location = new Point(1026, 117);
+            label2.Location = new Point(1024, 132);
             label2.Name = "label2";
             label2.Size = new Size(62, 28);
             label2.TabIndex = 24;
@@ -185,7 +188,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
             label1.ForeColor = Color.FromArgb(0, 0, 64);
-            label1.Location = new Point(1026, 48);
+            label1.Location = new Point(1024, 63);
             label1.Name = "label1";
             label1.Size = new Size(65, 28);
             label1.TabIndex = 23;
@@ -204,7 +207,7 @@
             // listsuppliersname
             // 
             listsuppliersname.FormattingEnabled = true;
-            listsuppliersname.Location = new Point(715, 107);
+            listsuppliersname.Location = new Point(713, 122);
             listsuppliersname.Name = "listsuppliersname";
             listsuppliersname.Size = new Size(250, 104);
             listsuppliersname.TabIndex = 21;
@@ -212,7 +215,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(715, 49);
+            dateTimePicker1.Location = new Point(713, 64);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(250, 27);
             dateTimePicker1.TabIndex = 20;
@@ -222,7 +225,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.FromArgb(0, 0, 64);
-            label5.Location = new Point(363, 281);
+            label5.Location = new Point(361, 296);
             label5.Name = "label5";
             label5.Size = new Size(64, 28);
             label5.TabIndex = 39;
@@ -230,7 +233,7 @@
             // 
             // CustomsNum
             // 
-            CustomsNum.Location = new Point(80, 282);
+            CustomsNum.Location = new Point(78, 297);
             CustomsNum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             CustomsNum.Name = "CustomsNum";
             CustomsNum.Size = new Size(250, 27);
@@ -241,7 +244,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
             label6.ForeColor = Color.FromArgb(0, 0, 64);
-            label6.Location = new Point(363, 361);
+            label6.Location = new Point(361, 376);
             label6.Name = "label6";
             label6.Size = new Size(50, 28);
             label6.TabIndex = 41;
@@ -249,17 +252,29 @@
             // 
             // OtherNum
             // 
-            OtherNum.Location = new Point(80, 362);
+            OtherNum.Location = new Point(78, 377);
             OtherNum.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             OtherNum.Name = "OtherNum";
             OtherNum.Size = new Size(250, 27);
             OtherNum.TabIndex = 40;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(73, 37);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 42;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // AddPurchasesBill
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1189, 514);
+            Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(OtherNum);
             Controls.Add(label5);
@@ -294,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)quantitynum).EndInit();
             ((System.ComponentModel.ISupportInitialize)CustomsNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)OtherNum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -320,5 +336,6 @@
         private NumericUpDown CustomsNum;
         private Label label6;
         private NumericUpDown OtherNum;
+        private PictureBox pictureBox1;
     }
 }

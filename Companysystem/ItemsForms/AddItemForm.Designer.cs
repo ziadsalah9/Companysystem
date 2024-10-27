@@ -38,9 +38,9 @@
             // 
             // addbtn
             // 
-            addbtn.Location = new Point(45, 346);
+            addbtn.Location = new Point(45, 468);
             addbtn.Name = "addbtn";
-            addbtn.Size = new Size(160, 64);
+            addbtn.Size = new Size(250, 64);
             addbtn.TabIndex = 8;
             addbtn.Text = "أضافة";
             addbtn.UseVisualStyleBackColor = true;
@@ -49,20 +49,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13F);
+            label1.Font = new Font("Segoe UI", 18F);
             label1.ForeColor = Color.Teal;
-            label1.Location = new Point(627, 187);
+            label1.Location = new Point(959, 226);
             label1.Name = "label1";
-            label1.Size = new Size(120, 30);
+            label1.Size = new Size(165, 41);
             label1.TabIndex = 7;
             label1.Text = "اسم الصنف";
             // 
             // itemnametxt
             // 
-            itemnametxt.Location = new Point(277, 178);
+            itemnametxt.Location = new Point(500, 206);
             itemnametxt.Multiline = true;
             itemnametxt.Name = "itemnametxt";
-            itemnametxt.Size = new Size(276, 57);
+            itemnametxt.Size = new Size(398, 94);
             itemnametxt.TabIndex = 6;
             // 
             // pictureBox1
@@ -80,11 +80,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1189, 581);
             Controls.Add(pictureBox1);
             Controls.Add(addbtn);
             Controls.Add(label1);
             Controls.Add(itemnametxt);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1207, 628);
+            MinimumSize = new Size(1207, 628);
             Name = "AddItemForm";
             Text = "AddItemForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

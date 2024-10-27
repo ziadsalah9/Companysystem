@@ -39,7 +39,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(34, 35);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(55, 38);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -49,9 +49,9 @@
             // 
             // addbtn
             // 
-            addbtn.Location = new Point(67, 352);
+            addbtn.Location = new Point(45, 468);
             addbtn.Name = "addbtn";
-            addbtn.Size = new Size(160, 64);
+            addbtn.Size = new Size(250, 64);
             addbtn.TabIndex = 9;
             addbtn.Text = "أضافة";
             addbtn.UseVisualStyleBackColor = true;
@@ -60,31 +60,34 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13F);
+            label1.Font = new Font("Segoe UI", 18F);
             label1.ForeColor = Color.Teal;
-            label1.Location = new Point(649, 193);
+            label1.Location = new Point(959, 226);
             label1.Name = "label1";
-            label1.Size = new Size(111, 30);
+            label1.Size = new Size(153, 41);
             label1.TabIndex = 8;
             label1.Text = "اسم المورد";
             // 
             // supnametxt
             // 
-            supnametxt.Location = new Point(299, 184);
+            supnametxt.Location = new Point(500, 206);
             supnametxt.Multiline = true;
             supnametxt.Name = "supnametxt";
-            supnametxt.Size = new Size(276, 57);
+            supnametxt.Size = new Size(398, 94);
             supnametxt.TabIndex = 7;
             // 
             // ADDsupplierform
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1189, 581);
             Controls.Add(pictureBox1);
             Controls.Add(addbtn);
             Controls.Add(label1);
             Controls.Add(supnametxt);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1207, 628);
+            MinimumSize = new Size(1207, 628);
             Name = "ADDsupplierform";
             Text = "ADDsupplierform";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -38,29 +38,29 @@
             // 
             // clientnametxt
             // 
-            clientnametxt.Location = new Point(296, 161);
+            clientnametxt.Location = new Point(500, 206);
             clientnametxt.Multiline = true;
             clientnametxt.Name = "clientnametxt";
-            clientnametxt.Size = new Size(276, 57);
+            clientnametxt.Size = new Size(398, 94);
             clientnametxt.TabIndex = 0;
             clientnametxt.TextChanged += clientnametxt_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13F);
+            label1.Font = new Font("Segoe UI", 18F);
             label1.ForeColor = Color.Teal;
-            label1.Location = new Point(646, 170);
+            label1.Location = new Point(959, 226);
             label1.Name = "label1";
-            label1.Size = new Size(117, 30);
+            label1.Size = new Size(161, 41);
             label1.TabIndex = 2;
             label1.Text = "اسم العميل";
             // 
             // addbtn
             // 
-            addbtn.Location = new Point(64, 329);
+            addbtn.Location = new Point(45, 468);
             addbtn.Name = "addbtn";
-            addbtn.Size = new Size(160, 64);
+            addbtn.Size = new Size(250, 64);
             addbtn.TabIndex = 4;
             addbtn.Text = "أضافة";
             addbtn.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(31, 12);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(55, 38);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -81,11 +81,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1189, 581);
             Controls.Add(pictureBox1);
             Controls.Add(addbtn);
             Controls.Add(label1);
             Controls.Add(clientnametxt);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1207, 628);
+            MinimumSize = new Size(1207, 628);
             Name = "AddClientForm";
             Text = "AddClientForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

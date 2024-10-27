@@ -42,7 +42,7 @@
             label6 = new Label();
             pictureBox6 = new PictureBox();
             label7 = new Label();
-            label8 = new Label();
+            storeButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -187,22 +187,24 @@
             label7.TabIndex = 16;
             label7.Text = "فواتير المشتريات";
             // 
-            // label8
+            // storeButton
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(554, 472);
-            label8.Name = "label8";
-            label8.Size = new Size(50, 20);
-            label8.TabIndex = 17;
-            label8.Text = "label8";
-            label8.Click += label8_Click;
+            storeButton.BackColor = Color.Gold;
+            storeButton.Font = new Font("Segoe UI", 12F);
+            storeButton.Location = new Point(79, 555);
+            storeButton.Name = "storeButton";
+            storeButton.Size = new Size(710, 48);
+            storeButton.TabIndex = 18;
+            storeButton.Text = "المخزن";
+            storeButton.UseVisualStyleBackColor = false;
+            storeButton.Click += storeButton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(899, 515);
-            Controls.Add(label8);
+            ClientSize = new Size(878, 647);
+            Controls.Add(storeButton);
             Controls.Add(label7);
             Controls.Add(pictureBox6);
             Controls.Add(label6);
@@ -216,8 +218,10 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -242,6 +246,6 @@
         private Label label6;
         private PictureBox pictureBox6;
         private Label label7;
-        private Label label8;
+        private Button storeButton;
     }
 }

@@ -18,7 +18,7 @@ namespace Companysystem.PurchasesBillsForm
         {
             InitializeComponent();
             context = new StoreContext();
-            
+
         }
 
 
@@ -38,7 +38,7 @@ namespace Companysystem.PurchasesBillsForm
 
             listsuppliersname.SelectedIndexChanged += listsuppliersname_SelectedIndexChanged;
 
-            listitemsname.SelectedIndexChanged += listitemsname_SelectedIndexChanged  ;
+            listitemsname.SelectedIndexChanged += listitemsname_SelectedIndexChanged;
 
 
         }
@@ -71,7 +71,6 @@ namespace Companysystem.PurchasesBillsForm
                     Price = priceNum.Value,
 
                     PriceValue = value,
-
                     deduct = discountnum.Value,
                     TransportAndShipping = transportandshippingnum.Value,
                     Customs = CustomsNum.Value,
@@ -81,57 +80,112 @@ namespace Companysystem.PurchasesBillsForm
 
                 };
 
-
-
-
-
                 context.Purchases.Add(data);
                 context.SaveChanges();
-                var Endst = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == listsuppliersname.SelectedItem);
 
-                if (Endst is null)
+           var name = context.items.FirstOrDefault(p => p.Id == (itemfk)).Name;
+
+                var Store = new Store
                 {
-                    var store = new Store
-                    {
-                        PurchasesBillId = data.Id,
-                        item = data.Item.Name,
-                        price = data.Price * 1.5m,
-                        incoming = data.quantity,
-                        BeginingStore =0,
-
-                        EndingStore = Endst.EndingStore+data.quantity,
-                        InventoryCost = 50,
-
-
-
-                    };
-                    context.Stores.Add(store);
-                    context.SaveChanges();
-
-                    MessageBox.Show("تمت الاضافة بنجاح");
-
-
-                }
-                else
-                {
-                    var store = new Store
-                    {
-                        PurchasesBillId = data.Id,
-                        item = data.Item.Name,
-                        price = data.Price * 1.5m,
-                        incoming = data.quantity,
-                        BeginingStore = Endst.BeginingStore,
-
-                        EndingStore = Endst.EndingStore + data.quantity,
-                        InventoryCost = 50,
+                    PurchasesBillId = data.Id,
+                    price =data.Price*1.5m,
+                    BeginingStore = 0,
+                    incoming = data.quantity    ,
+                    EndingStore = data.quantity ,
+                    InventoryCost = (data.quantity*data.priceUnit),
+                    item = name,
+                    
+                    
 
 
 
-                    };
-                    context.Stores.Add(store);
-                    context.SaveChanges();
+                };
 
-                }
+
+
+                context.Stores.Add(Store);
+                context.SaveChanges();
+                MessageBox.Show("تمت الاضافة بنجاح");
+                var purchaseb = new PurchsesBillForm();
+                purchaseb.Show();
+                Hide();
+
+                #region
+                //// var idname = listitemsname.SelectedValue;
+
+                //var name = context.items.FirstOrDefault(p => p.Id == (int)listitemsname.SelectedValue);
+
+
+
+
+                //var Endst = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == name.Name);
+
+                //// لو هو موجود فى الداتا بيز يبقى ثبت سعر يونيت برايس
+
+                ////var update = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == name.Name && p.PurchasesBill.quantity==(int)quantitynum.Value
+
+                ////&&p.PurchasesBill.Customs== CustomsNum.Value && p.PurchasesBill.deduct== discountnum.Value && p.PurchasesBill.TransportAndShipping== transportandshippingnum.Value && p.PurchasesBill.others== transportandshippingnum.Value
+
+
+
+                ////);
+
+
+                //// ده بيجيب الفواتير علشان اقدر اجيب منه اليونت برايس واضربه فى الكوانتيتي فيطلعلى انفونترى كوست
+                //// هو مش مظبوط ممكن اشيله السطر ده بس
+                //var purchsesbillpriceunit = context.Purchases.OrderByDescending(p => p.Id).FirstOrDefault();
+
+                //if (Endst is null)
+                //{
+                //    var store = new Store
+                //    {
+                //        PurchasesBillId = data.Id,
+                //        item = data.Item.Name,
+                //        price = data.Price * 1.5m,
+                //        incoming = data.quantity,
+                //        BeginingStore = 0,
+
+                //        EndingStore = data.quantity,
+                //        InventoryCost = data.quantity * data.priceUnit,
+
+
+
+
+                //    };
+                //    context.Stores.Add(store);
+                //    context.SaveChanges();
+
+                //    MessageBox.Show("تمت الاضافة بنجاح");
+
+
+                //}
+
+
+
+                //else
+                //{
+                //    var store = new Store
+                //    {
+                //        PurchasesBillId = data.Id,
+                //        item = data.Item.Name,
+                //        price = data.Price * 1.5m,
+                //        incoming = data.quantity,
+                //        BeginingStore = Endst.EndingStore,
+
+                //        EndingStore = Endst.EndingStore + data.quantity,
+                //        InventoryCost = (Endst.EndingStore + data.quantity) * purchsesbillpriceunit.priceUnit,
+
+
+
+                //    };
+                //    context.Stores.Add(store);
+                //    context.SaveChanges();
+                //    MessageBox.Show("تمت الاضافة بنجاح");
+
+
+                //  }
+
+                #endregion
             }
 
 
@@ -146,6 +200,13 @@ namespace Companysystem.PurchasesBillsForm
         private void listitemsname_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var purchaseb = new PurchsesBillForm();
+            purchaseb.Show();
+            Hide();
         }
     }
 }

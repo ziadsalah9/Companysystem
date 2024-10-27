@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             analysisdgv = new DataGridView();
             analysisnumeric = new NumericUpDown();
             label1 = new Label();
@@ -41,43 +41,43 @@
             // 
             // analysisdgv
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            analysisdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            analysisdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             analysisdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            analysisdgv.DefaultCellStyle = dataGridViewCellStyle2;
-            analysisdgv.Location = new Point(23, 70);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            analysisdgv.DefaultCellStyle = dataGridViewCellStyle5;
+            analysisdgv.Location = new Point(12, 234);
             analysisdgv.Name = "analysisdgv";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            analysisdgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            analysisdgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             analysisdgv.RowHeadersWidth = 51;
-            analysisdgv.Size = new Size(751, 357);
+            analysisdgv.Size = new Size(1152, 324);
             analysisdgv.TabIndex = 0;
             // 
             // analysisnumeric
             // 
-            analysisnumeric.Location = new Point(208, 30);
+            analysisnumeric.Location = new Point(367, 77);
             analysisnumeric.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             analysisnumeric.Name = "analysisnumeric";
-            analysisnumeric.Size = new Size(186, 27);
+            analysisnumeric.Size = new Size(377, 27);
             analysisnumeric.TabIndex = 1;
             // 
             // label1
@@ -85,7 +85,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(434, 22);
+            label1.Location = new Point(824, 67);
             label1.Name = "label1";
             label1.Size = new Size(340, 35);
             label1.TabIndex = 2;
@@ -93,9 +93,9 @@
             // 
             // btnsearch
             // 
-            btnsearch.Location = new Point(23, 25);
+            btnsearch.Location = new Point(30, 67);
             btnsearch.Name = "btnsearch";
-            btnsearch.Size = new Size(134, 35);
+            btnsearch.Size = new Size(176, 35);
             btnsearch.TabIndex = 3;
             btnsearch.Text = "ابحث";
             btnsearch.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1189, 581);
             Controls.Add(btnsearch);
             Controls.Add(label1);
             Controls.Add(analysisnumeric);
