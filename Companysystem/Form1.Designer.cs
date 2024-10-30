@@ -43,6 +43,7 @@
             pictureBox6 = new PictureBox();
             label7 = new Label();
             storeButton = new Button();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -199,11 +200,22 @@
             storeButton.UseVisualStyleBackColor = false;
             storeButton.Click += storeButton_Click;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(816, 572);
+            label8.Name = "label8";
+            label8.Size = new Size(50, 20);
+            label8.TabIndex = 19;
+            label8.Text = "label8";
+            label8.Click += label8_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(878, 647);
+            Controls.Add(label8);
             Controls.Add(storeButton);
             Controls.Add(label7);
             Controls.Add(pictureBox6);
@@ -247,5 +259,6 @@
         private PictureBox pictureBox6;
         private Label label7;
         private Button storeButton;
+        private Label label8;
     }
 }

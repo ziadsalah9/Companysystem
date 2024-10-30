@@ -52,6 +52,8 @@
             label6 = new Label();
             OtherNum = new NumericUpDown();
             pictureBox1 = new PictureBox();
+            addbrginingstore = new NumericUpDown();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)transportandshippingnum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)discountnum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)priceNum).BeginInit();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)CustomsNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OtherNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)addbrginingstore).BeginInit();
             SuspendLayout();
             // 
             // Commissiontxt
@@ -158,7 +161,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.FromArgb(0, 0, 64);
-            label3.Location = new Point(1026, 373);
+            label3.Location = new Point(1023, 372);
             label3.Name = "label3";
             label3.Size = new Size(63, 28);
             label3.TabIndex = 26;
@@ -269,11 +272,34 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // addbrginingstore
+            // 
+            addbrginingstore.BackColor = SystemColors.InactiveCaption;
+            addbrginingstore.ForeColor = Color.Black;
+            addbrginingstore.Location = new Point(713, 463);
+            addbrginingstore.Name = "addbrginingstore";
+            addbrginingstore.Size = new Size(250, 27);
+            addbrginingstore.TabIndex = 43;
+            addbrginingstore.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.ForeColor = Color.Firebrick;
+            label8.Location = new Point(1018, 458);
+            label8.Name = "label8";
+            label8.Size = new Size(89, 28);
+            label8.TabIndex = 44;
+            label8.Text = "أول المدة";
+            // 
             // AddPurchasesBill
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1189, 514);
+            Controls.Add(label8);
+            Controls.Add(addbrginingstore);
             Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(OtherNum);
@@ -310,6 +336,7 @@
             ((System.ComponentModel.ISupportInitialize)CustomsNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)OtherNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)addbrginingstore).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -337,5 +364,7 @@
         private Label label6;
         private NumericUpDown OtherNum;
         private PictureBox pictureBox1;
+        private NumericUpDown addbrginingstore;
+        private Label label8;
     }
 }

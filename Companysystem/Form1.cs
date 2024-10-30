@@ -69,7 +69,7 @@ namespace Companysystem
 
         }
 
-     
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -83,6 +83,13 @@ namespace Companysystem
             storeForm.Show();
             Hide();
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            TestForm testForm = new TestForm();
+            testForm.Show();
+            Hide();
         }
     }
 }

@@ -34,6 +34,7 @@ namespace Companysystem.Models
 
         public string item { get; set;}
         
+        public decimal priceUnit { get; set; }
    
 
 

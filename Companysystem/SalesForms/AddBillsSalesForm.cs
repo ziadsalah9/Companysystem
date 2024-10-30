@@ -86,8 +86,8 @@ namespace Companysystem.SalesForms
             if (selectedId.ToString() is not null || itemfk.ToString() is not null)
             {
 
-                MessageBox.Show($"Selected ID: {selectedId}");
-                MessageBox.Show($"select id  : {itemfk}");
+                //MessageBox.Show($"Selected ID: {selectedId}");
+                //MessageBox.Show($"select id  : {itemfk}");
 
                 var sale = new Sales
                 {
@@ -109,6 +109,8 @@ namespace Companysystem.SalesForms
 
 
                 string name = context.items.FirstOrDefault(p => p.Id == itemfk).Name;
+                var still = context.Stores.Where(p => p.item == name).Sum(p => p.EndingStore);
+
 
 
                 //context.SaveChanges();
@@ -131,8 +133,14 @@ namespace Companysystem.SalesForms
                             BeginingStore = 0,
                             EndingStore = firstenterdinstore.EndingStore - sale.quantity,
                             item = name,
-                            price=firstenterdinstore.price,
-                         
+                            price = firstenterdinstore.price,
+                            priceUnit = firstenterdinstore.priceUnit,
+
+                            //راجعها
+
+                            
+                            InventoryCost = firstenterdinstore.priceUnit * (firstenterdinstore.EndingStore-sale.quantity)
+
 
 
 
@@ -142,10 +150,110 @@ namespace Companysystem.SalesForms
                         context.Stores.Remove(firstenterdinstore);
                         context.SaveChanges();
 
+                        var billsfor = new BillsForms();
+                        billsfor.Show();
+                        Hide();
+                    }
+                    // 8
+                    // 
+                    // 5 5 0
+                    // 5 3 2
+                    #region باقى اهندل حالة انى ابيع بس يكون اكبر من اول صف بس مش اكبر من كل المخزون
+                    else if (sale.quantity > firstenterdinstore.EndingStore && sale.quantity <= still)
+                    {
+
+                        var records = context.Stores.Where(p=>p.item==name).OrderBy(r => r.Id).ToList();
+                        int sum = 0; 
+
+                        foreach (var record in records)
+                        {
+                            sum += record.EndingStore;
+                           // Counter++;
+                            if (sum >= quantitynum.Value)
+                            {
+                                break;
+                            }
+                            context.Stores.Remove(record);
+                            context.SaveChanges();
+
+
+                        }
+
+                     
+                        //sumcounter += Counter - 1;
+
+                        //List<int> values = new List<int>();
+                        //values[0] = 0;    
+                        //values.Add(sumcounter);
+                        //var secondlastelement = values[values.Count()-2];
+                        //skip = values.Last()+sumcounter;
+
+
+
+                       
+
+
+                        var data = context.Stores.FirstOrDefault(p => p.item == name);
+
+                        var sale2 = new Sales
+                        {
+
+                            clientID = selectedId,
+                            Date = dateTimePicker1.Value,
+                            month = dateTimePicker1.Value.Month,
+                            ItemfkId = itemfk,
+                            quantity = (int)quantitynum.Value,
+                            Commissions = commissionsnum.Value,
+                            deduct = discountnum.Value,
+                            Notes = noticestxt.Text,
+                            Price = priceNum.Value,
+                            priceValue = quantitynum.Value * priceNum.Value,
+                            NetPriceValue = (quantitynum.Value * priceNum.Value) - (discountnum.Value + commissionsnum.Value),
+
+                        };
+                        context.Salesd.Add(sale2);
+                        context.SaveChanges();
+
+
+                      
+                        if (data is not null)
+                        {
+                            var store = new Store
+                            {
+                                Id =data.Id,
+                                outgoing = (int)quantitynum.Value,
+                                salesid = sale2.Id,
+                                BeginingStore = sum,
+                                EndingStore = sum-sale2.quantity,
+                                item = data.item,
+                                price = data.price,
+                                incoming = 0,
+                                PurchasesBill = data.PurchasesBill,
+                                priceUnit=data.priceUnit,
+                                InventoryCost =  data.priceUnit*(sum-sale2.quantity)//wrong data
+                                
+                                
+
+                               
+
+                            };
+
+                            context.Stores.Remove(data);
+                            context.Stores.Add(store);
+                            context.SaveChanges();
+                            
+                        }
+                        var billsfor = new BillsForms();
+                        billsfor.Show();
+                        Hide();
 
                     }
-                    else if (sale.quantity>firstenterdinstore.EndingStore)
+                    #endregion
+
+                    else if (sale.quantity>firstenterdinstore.EndingStore && sale.quantity>still)
                     {
+
+
 
 
                         var sale2 = new Sales
@@ -175,86 +283,34 @@ namespace Companysystem.SalesForms
 
                         //};
 
-                        context.Salesd.Add(sale2);
-                       // context.Stores.Add(store);
-                        context.Stores.Remove(firstenterdinstore);
-                        context.SaveChanges();
+                        // context.Salesd.Add(sale2);
+                        //// context.Stores.Add(store);
+                        // context.Stores.Remove(firstenterdinstore);
+                        // context.SaveChanges();
 
-                        MessageBox.Show($"عناصر  {(int)quantitynum.Value - firstenterdinstore.EndingStore} باقى ");
+            
+
+
+                        OkOrNotWhenQuanityGreaterThanEndingStore okornott = new OkOrNotWhenQuanityGreaterThanEndingStore(still,sale2,firstenterdinstore);
+                        okornott.Show();
+                        Hide();
 
                     }
                     else
                     {
-                        MessageBox.Show("no item available");
+                        MessageBox.Show("لا يوجد هذا الصنف فى المخزن");
 
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("no item available");
+                    MessageBox.Show("لا يوجد هذا الصنف فى المخزن");
                 }
 
-                #region updatestore from sales (old)
-                ////   var checkqnatity = context.Stores.OrderByDescending(p=>p.Id).FirstOrDefault(p=>p.PurchasesBill.Item == sale.Item);
-                //var checkqnatity = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == sale.Item.Name);
+                
 
-                //if (checkqnatity != null)
-                //{
-                //    if (sale.quantity <= checkqnatity.EndingStore)
-                //    {
-
-                //        var data = new Store
-                //        {
-                //            salesid = sale.Id,
-                //            outgoing = sale.quantity,
-                //            //PurchasesBillId =checkqnatity.PurchasesBillId,
-                //            price = checkqnatity.price,
-                //            BeginingStore = checkqnatity.EndingStore,
-                //            EndingStore = checkqnatity.EndingStore - sale.quantity,
-                //            InventoryCost = checkqnatity.EndingStore * checkqnatity.PurchasesBill.Price,
-                //            item = sale.Item.Name
-
-                //        };
-                //        context.Stores.Add(data);
-                //        context.SaveChanges();
-                //    }
-
-                //    else
-                //    {
-                //        var data = new Store
-                //        {
-                //            salesid = sale.Id,
-                //            outgoing = sale.quantity,
-                //            //PurchasesBillId =checkqnatity.PurchasesBillId,
-                //            price = checkqnatity.price,
-                //            BeginingStore = checkqnatity.EndingStore,
-                //            EndingStore = 0,
-                //            InventoryCost = checkqnatity.EndingStore * checkqnatity.PurchasesBill.Price,
-                //            item = sale.Item.Name
-
-                //        };
-
-                //        context.Stores.Add(data);
-                //        //       MessageBox.Show($"{checkqnatity.EndingStore} ومتبقى{data.item} من ال {sale.quantity-checkqnatity.EndingStore}لا يوجد كمية كافية فى المخزن قد تم بيع   ");
-
-                //        MessageBox.Show($"{sale.quantity - checkqnatity.EndingStore}لا يوجد كمية كافية فى المخزن . لقد تم بيع");
-                //        AddBillsSalesForm addBillsSalesForm = new AddBillsSalesForm();
-                //        context.SaveChanges();
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("لا يوجد هذا الصنف فى المخزن");
-                //}
-
-
-                #endregion
-
-
-                var billsfor = new BillsForms();
-                billsfor.Show();
-                Hide();
+                
 
             }
         }
@@ -267,3 +323,75 @@ namespace Companysystem.SalesForms
         }
     }
 }
+
+
+#region priceunit
+//decimal priceUnitFrompurchaseBill = context.Purchases.OrderByDescending(p => p.Id).FirstOrDefault(p => p.Id == firstenterdinstore.PurchasesBillId).priceUnit;
+//var priceunitfrom = context.Purchases
+//            .OrderBy(r => r.Id) // Ensure consistent ordering
+//            .Skip(sumcounter) // Skip the first two rows
+//            .Take(1) // Take the next row
+//            .ToList();
+
+//var price = priceunitfrom.FirstOrDefault().priceUnit;
+#endregion
+#region updatestore from sales (old)
+////   var checkqnatity = context.Stores.OrderByDescending(p=>p.Id).FirstOrDefault(p=>p.PurchasesBill.Item == sale.Item);
+//var checkqnatity = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == sale.Item.Name);
+
+//if (checkqnatity != null)
+//{
+//    if (sale.quantity <= checkqnatity.EndingStore)
+//    {
+
+//        var data = new Store
+//        {
+//            salesid = sale.Id,
+//            outgoing = sale.quantity,
+//            //PurchasesBillId =checkqnatity.PurchasesBillId,
+//            price = checkqnatity.price,
+//            BeginingStore = checkqnatity.EndingStore,
+//            EndingStore = checkqnatity.EndingStore - sale.quantity,
+//            InventoryCost = checkqnatity.EndingStore * checkqnatity.PurchasesBill.Price,
+//            item = sale.Item.Name
+
+//        };
+//        context.Stores.Add(data);
+//        context.SaveChanges();
+//    }
+
+//    else
+//    {
+//        var data = new Store
+//        {
+//            salesid = sale.Id,
+//            outgoing = sale.quantity,
+//            //PurchasesBillId =checkqnatity.PurchasesBillId,
+//            price = checkqnatity.price,
+//            BeginingStore = checkqnatity.EndingStore,
+//            EndingStore = 0,
+//            InventoryCost = checkqnatity.EndingStore * checkqnatity.PurchasesBill.Price,
+//            item = sale.Item.Name
+
+//        };
+
+//        context.Stores.Add(data);
+//        //       MessageBox.Show($"{checkqnatity.EndingStore} ومتبقى{data.item} من ال {sale.quantity-checkqnatity.EndingStore}لا يوجد كمية كافية فى المخزن قد تم بيع   ");
+
+//        MessageBox.Show($"{sale.quantity - checkqnatity.EndingStore}لا يوجد كمية كافية فى المخزن . لقد تم بيع");
+//        AddBillsSalesForm addBillsSalesForm = new AddBillsSalesForm();
+//        context.SaveChanges();
+//    }
+//}
+//else
+//{
+//    MessageBox.Show("لا يوجد هذا الصنف فى المخزن");
+//}
+
+
+#endregion
+
+
+
+/// if salesbill have quantity 9 and in store have 9 
+/// this find zero and should remove the store

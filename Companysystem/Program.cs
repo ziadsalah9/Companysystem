@@ -30,7 +30,7 @@ namespace Companysystem
             var mainForm = serviceProvider.GetRequiredService<BillsForms>();
             var main = serviceProvider.GetRequiredService<Form1>();
 
-
+            
 
          // Application.Run(new Form1());
            Application.Run(main);

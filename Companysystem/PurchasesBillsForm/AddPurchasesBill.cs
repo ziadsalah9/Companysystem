@@ -18,10 +18,110 @@ namespace Companysystem.PurchasesBillsForm
         {
             InitializeComponent();
             context = new StoreContext();
-
+            CustomizeUI();
         }
 
+        private void CustomizeUI()
+        {
+            // Customize Form
+            this.BackColor = Color.FromArgb(240, 240, 240);
+            this.Font = new Font("Segoe UI", 10, FontStyle.Regular);
 
+            // Customize NumericUpDown controls
+            CustomizeNumericUpDown(priceNum);
+            CustomizeNumericUpDown(quantitynum);
+            CustomizeNumericUpDown(discountnum);
+            CustomizeNumericUpDown(transportandshippingnum);
+            CustomizeNumericUpDown(CustomsNum);
+            CustomizeNumericUpDown(OtherNum);
+
+            // Customize ListBox controls
+            CustomizeListBox(listsuppliersname);
+            CustomizeListBox(listitemsname);
+
+            // Customize Buttons
+            CustomizeButton(btnadd);
+
+            // Customize Labels
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label)
+                {
+                    CustomizeLabel((Label)control);
+                }
+            }
+
+            // Customize DateTimePicker
+            CustomizeDateTimePicker(dateTimePicker1);
+
+            // Customize TextBox controls
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    CustomizeTextBox((TextBox)control);
+                }
+            }
+
+            // Customize PictureBox
+            CustomizePictureBox(pictureBox1);
+        }
+
+        private void CustomizeNumericUpDown(NumericUpDown numericUpDown)
+        {
+            numericUpDown.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            numericUpDown.ForeColor = Color.FromArgb(45, 45, 48);
+            numericUpDown.BackColor = Color.White;
+            numericUpDown.BorderStyle = BorderStyle.FixedSingle;
+
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(numericUpDown, "Enter a value");
+        }
+
+        private void CustomizeListBox(ListBox listBox)
+        {
+            listBox.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+            listBox.ForeColor = Color.FromArgb(45, 45, 48);
+            listBox.BackColor = Color.White;
+        }
+
+        private void CustomizeButton(Button button)
+        {
+            button.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            button.ForeColor = Color.White;
+            button.BackColor = Color.FromArgb(0, 122, 204);
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 151, 234);
+            button.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 102, 204);
+        }
+
+        private void CustomizeLabel(Label label)
+        {
+            label.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+            label.ForeColor = Color.FromArgb(45, 45, 48);
+        }
+
+        private void CustomizeDateTimePicker(DateTimePicker dateTimePicker)
+        {
+            dateTimePicker.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+            dateTimePicker.CalendarForeColor = Color.FromArgb(45, 45, 48);
+            dateTimePicker.CalendarMonthBackground = Color.White;
+        }
+
+        private void CustomizeTextBox(TextBox textBox)
+        {
+            textBox.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+            textBox.ForeColor = Color.FromArgb(45, 45, 48);
+            textBox.BackColor = Color.White;
+            textBox.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void CustomizePictureBox(PictureBox pictureBox)
+        {
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.BorderStyle = BorderStyle.FixedSingle;
+        }
 
         private void AddPurchasesBill_Load(object sender, EventArgs e)
         {
@@ -35,31 +135,19 @@ namespace Companysystem.PurchasesBillsForm
             listitemsname.DisplayMember = "Name";
             listitemsname.ValueMember = "Id";
 
-
             listsuppliersname.SelectedIndexChanged += listsuppliersname_SelectedIndexChanged;
-
             listitemsname.SelectedIndexChanged += listitemsname_SelectedIndexChanged;
-
-
         }
-
-
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-
             using (var context = new StoreContext())
             {
-
-
                 int selectedId = (int)listsuppliersname.SelectedValue;
                 int itemfk = (int)listitemsname.SelectedValue;
 
                 var value = priceNum.Value * quantitynum.Value;
-
-                var netpricevalue = value - (discountnum.Value) + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value)
-                    ;
-
+                var netpricevalue = value - discountnum.Value + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value);
 
                 var data = new Purchases
                 {
@@ -69,137 +157,49 @@ namespace Companysystem.PurchasesBillsForm
                     ItemId = itemfk,
                     quantity = (int)quantitynum.Value,
                     Price = priceNum.Value,
-
                     PriceValue = value,
                     deduct = discountnum.Value,
                     TransportAndShipping = transportandshippingnum.Value,
                     Customs = CustomsNum.Value,
                     others = OtherNum.Value,
-                    NetPriceValue = value - (discountnum.Value) + (transportandshippingnum.Value + CustomsNum.Value + OtherNum.Value),
+                    NetPriceValue = netpricevalue,
                     priceUnit = ((decimal)Math.Pow(Convert.ToDouble(quantitynum.Value), -1.00)) * netpricevalue
-
                 };
 
                 context.Purchases.Add(data);
                 context.SaveChanges();
 
-           var name = context.items.FirstOrDefault(p => p.Id == (itemfk)).Name;
+                var name = context.items.FirstOrDefault(p => p.Id == itemfk).Name;
 
-                var Store = new Store
+                var store = new Store
                 {
                     PurchasesBillId = data.Id,
-                    price =data.Price*1.5m,
-                    BeginingStore = 0,
-                    incoming = data.quantity    ,
-                    EndingStore = data.quantity ,
-                    InventoryCost = (data.quantity*data.priceUnit),
-                    item = name,
-                    
-                    
-
-
-
+                    price = data.Price * 1.5m,
+                    BeginingStore = (int)addbrginingstore.Value,
+                    incoming = data.quantity,
+                    EndingStore = data.quantity+(int)addbrginingstore.Value,
+                    InventoryCost = (data.quantity +(int)addbrginingstore.Value)* data.priceUnit,
+                    item = name , 
+                    priceUnit = data.priceUnit
                 };
 
-
-
-                context.Stores.Add(Store);
+                context.Stores.Add(store);
                 context.SaveChanges();
                 MessageBox.Show("تمت الاضافة بنجاح");
                 var purchaseb = new PurchsesBillForm();
                 purchaseb.Show();
                 Hide();
-
-                #region
-                //// var idname = listitemsname.SelectedValue;
-
-                //var name = context.items.FirstOrDefault(p => p.Id == (int)listitemsname.SelectedValue);
-
-
-
-
-                //var Endst = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == name.Name);
-
-                //// لو هو موجود فى الداتا بيز يبقى ثبت سعر يونيت برايس
-
-                ////var update = context.Stores.OrderByDescending(p => p.Id).FirstOrDefault(p => p.item == name.Name && p.PurchasesBill.quantity==(int)quantitynum.Value
-
-                ////&&p.PurchasesBill.Customs== CustomsNum.Value && p.PurchasesBill.deduct== discountnum.Value && p.PurchasesBill.TransportAndShipping== transportandshippingnum.Value && p.PurchasesBill.others== transportandshippingnum.Value
-
-
-
-                ////);
-
-
-                //// ده بيجيب الفواتير علشان اقدر اجيب منه اليونت برايس واضربه فى الكوانتيتي فيطلعلى انفونترى كوست
-                //// هو مش مظبوط ممكن اشيله السطر ده بس
-                //var purchsesbillpriceunit = context.Purchases.OrderByDescending(p => p.Id).FirstOrDefault();
-
-                //if (Endst is null)
-                //{
-                //    var store = new Store
-                //    {
-                //        PurchasesBillId = data.Id,
-                //        item = data.Item.Name,
-                //        price = data.Price * 1.5m,
-                //        incoming = data.quantity,
-                //        BeginingStore = 0,
-
-                //        EndingStore = data.quantity,
-                //        InventoryCost = data.quantity * data.priceUnit,
-
-
-
-
-                //    };
-                //    context.Stores.Add(store);
-                //    context.SaveChanges();
-
-                //    MessageBox.Show("تمت الاضافة بنجاح");
-
-
-                //}
-
-
-
-                //else
-                //{
-                //    var store = new Store
-                //    {
-                //        PurchasesBillId = data.Id,
-                //        item = data.Item.Name,
-                //        price = data.Price * 1.5m,
-                //        incoming = data.quantity,
-                //        BeginingStore = Endst.EndingStore,
-
-                //        EndingStore = Endst.EndingStore + data.quantity,
-                //        InventoryCost = (Endst.EndingStore + data.quantity) * purchsesbillpriceunit.priceUnit,
-
-
-
-                //    };
-                //    context.Stores.Add(store);
-                //    context.SaveChanges();
-                //    MessageBox.Show("تمت الاضافة بنجاح");
-
-
-                //  }
-
-                #endregion
             }
-
-
-
         }
 
         private void listsuppliersname_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // Handle supplier selection change
         }
 
         private void listitemsname_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // Handle item selection change
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -207,6 +207,12 @@ namespace Companysystem.PurchasesBillsForm
             var purchaseb = new PurchsesBillForm();
             purchaseb.Show();
             Hide();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+
         }
     }
 }
