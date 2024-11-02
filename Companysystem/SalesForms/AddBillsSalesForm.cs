@@ -120,6 +120,7 @@ namespace Companysystem.SalesForms
 
                 if (firstenterdinstore is not null)
                 {
+                    #region important
                     if (sale.quantity <= firstenterdinstore.EndingStore)
                     {
 
@@ -130,7 +131,7 @@ namespace Companysystem.SalesForms
                         {
                             outgoing = sale.quantity,
                             salesid = sale.Id,
-                            BeginingStore = 0,
+                            BeginingStore = firstenterdinstore.EndingStore,
                             EndingStore = firstenterdinstore.EndingStore - sale.quantity,
                             item = name,
                             price = firstenterdinstore.price,
@@ -138,8 +139,8 @@ namespace Companysystem.SalesForms
 
                             //راجعها
 
-                            
-                            InventoryCost = firstenterdinstore.priceUnit * (firstenterdinstore.EndingStore-sale.quantity)
+
+                            InventoryCost = firstenterdinstore.priceUnit * (firstenterdinstore.EndingStore - sale.quantity)
 
 
 
@@ -153,7 +154,8 @@ namespace Companysystem.SalesForms
                         var billsfor = new BillsForms();
                         billsfor.Show();
                         Hide();
-                    }
+                    } 
+                    #endregion
                     // 8
                     // 
                     // 5 5 0
