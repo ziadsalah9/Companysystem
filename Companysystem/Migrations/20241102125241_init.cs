@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Companysystem.Migrations
 {
     /// <inheritdoc />
-    public partial class init1 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -158,7 +158,8 @@ namespace Companysystem.Migrations
                     outgoing = table.Column<int>(type: "int", nullable: false),
                     EndingStore = table.Column<int>(type: "int", nullable: false),
                     InventoryCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    salesid = table.Column<int>(type: "int", nullable: false)
+                    item = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    priceUnit = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -169,12 +170,38 @@ namespace Companysystem.Migrations
                         principalTable: "Purchases",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StoresTransaction",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    storessId = table.Column<int>(type: "int", nullable: false),
+                    purchasessId = table.Column<int>(type: "int", nullable: false),
+                    salessId = table.Column<int>(type: "int", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StoresTransaction", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Stores_Salesd_salesid",
-                        column: x => x.salesid,
-                        principalTable: "Salesd",
+                        name: "FK_StoresTransaction_Purchases_purchasessId",
+                        column: x => x.purchasessId,
+                        principalTable: "Purchases",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StoresTransaction_Salesd_salessId",
+                        column: x => x.salessId,
+                        principalTable: "Salesd",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_StoresTransaction_Stores_storessId",
+                        column: x => x.storessId,
+                        principalTable: "Stores",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -203,9 +230,19 @@ namespace Companysystem.Migrations
                 column: "PurchasesBillId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stores_salesid",
-                table: "Stores",
-                column: "salesid");
+                name: "IX_StoresTransaction_purchasessId",
+                table: "StoresTransaction",
+                column: "purchasessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StoresTransaction_salessId",
+                table: "StoresTransaction",
+                column: "salessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StoresTransaction_storessId",
+                table: "StoresTransaction",
+                column: "storessId");
         }
 
         /// <inheritdoc />
@@ -215,19 +252,22 @@ namespace Companysystem.Migrations
                 name: "CostsAndExpensesModels");
 
             migrationBuilder.DropTable(
-                name: "Stores");
-
-            migrationBuilder.DropTable(
-                name: "Purchases");
+                name: "StoresTransaction");
 
             migrationBuilder.DropTable(
                 name: "Salesd");
 
             migrationBuilder.DropTable(
-                name: "Suppliers");
+                name: "Stores");
 
             migrationBuilder.DropTable(
                 name: "clients");
+
+            migrationBuilder.DropTable(
+                name: "Purchases");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
 
             migrationBuilder.DropTable(
                 name: "items");

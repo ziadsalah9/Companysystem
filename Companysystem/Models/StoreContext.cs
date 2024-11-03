@@ -13,7 +13,7 @@ namespace Companysystem.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=CompanyV5;Trusted_Connection=True;encrypt= false");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=CompanyV7;Trusted_Connection=True;encrypt= false");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,6 +32,8 @@ namespace Companysystem.Models
         public DbSet<Purchases> Purchases { get; set; }
 
         public DbSet<Store> Stores { get; set; }
+
+        public DbSet<StoreTransaction> StoresTransaction { get; set; }
 
     }
 }

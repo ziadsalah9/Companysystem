@@ -89,6 +89,20 @@ namespace Companysystem.SalesForms
                 //MessageBox.Show($"Selected ID: {selectedId}");
                 //MessageBox.Show($"select id  : {itemfk}");
 
+       
+
+
+
+                string name = context.items.FirstOrDefault(p => p.Id == itemfk).Name;
+                var still = context.Stores.Where(p => p.item == name).Sum(p => p.EndingStore);
+
+
+
+                //context.SaveChanges();
+
+                var firstenterdinstore = context.Stores.FirstOrDefault(p=>p.item==name &&p.EndingStore!=0);
+                //   var firstenterdinstore = context.Stores.FirstOrDefault(p=>p.item==sale.Item.Name);
+
                 var sale = new Sales
                 {
                     clientID = selectedId,
@@ -103,20 +117,7 @@ namespace Companysystem.SalesForms
                     priceValue = quantitynum.Value * priceNum.Value,
                     NetPriceValue = (quantitynum.Value * priceNum.Value) - (discountnum.Value + commissionsnum.Value),
 
-
                 };
-
-
-
-                string name = context.items.FirstOrDefault(p => p.Id == itemfk).Name;
-                var still = context.Stores.Where(p => p.item == name).Sum(p => p.EndingStore);
-
-
-
-                //context.SaveChanges();
-
-                var firstenterdinstore = context.Stores.FirstOrDefault(p=>p.item==name);
-             //   var firstenterdinstore = context.Stores.FirstOrDefault(p=>p.item==sale.Item.Name);
 
                 if (firstenterdinstore is not null)
                 {
@@ -124,81 +125,58 @@ namespace Companysystem.SalesForms
                     if (sale.quantity <= firstenterdinstore.EndingStore)
                     {
 
-                        context.Salesd.Add(sale);
+
+
+
+
+
+                        firstenterdinstore.Id = firstenterdinstore.Id;
+                        firstenterdinstore.price = firstenterdinstore.price;
+                        firstenterdinstore.PurchasesBillId = firstenterdinstore.PurchasesBillId;
+                        firstenterdinstore.outgoing = firstenterdinstore.outgoing+(int)quantitynum.Value;
+                        firstenterdinstore.EndingStore = (firstenterdinstore.BeginingStore + firstenterdinstore.incoming) - firstenterdinstore.outgoing;
+                        firstenterdinstore.InventoryCost = firstenterdinstore.priceUnit * firstenterdinstore.EndingStore;
+                        firstenterdinstore.item = firstenterdinstore.item;
+                        firstenterdinstore.priceUnit = firstenterdinstore.priceUnit;
                         context.SaveChanges();
 
-                        var store = new Store
+
+
+                        context.Salesd.Add(sale);
+
+                        context.SaveChanges();
+                        MessageBox.Show("تمت العملية بنجاح");
+
+                        var trans = new StoreTransaction
                         {
-                            outgoing = sale.quantity,
-                            salesid = sale.Id,
-                            BeginingStore = firstenterdinstore.EndingStore,
-                            EndingStore = firstenterdinstore.EndingStore - sale.quantity,
-                            item = name,
-                            price = firstenterdinstore.price,
-                            priceUnit = firstenterdinstore.priceUnit,
-
-                            //راجعها
-
-
-                            InventoryCost = firstenterdinstore.priceUnit * (firstenterdinstore.EndingStore - sale.quantity)
-
-
-
-
+                            purchasessId = firstenterdinstore.PurchasesBillId,
+                            storessId = firstenterdinstore.Id,
+                            quantity = firstenterdinstore.outgoing,
+                            salessId = sale.Id
                         };
 
-                        context.Stores.Add(store);
-                        context.Stores.Remove(firstenterdinstore);
+                        context.Add(trans);
                         context.SaveChanges();
+
+
+
+    
 
                         var billsfor = new BillsForms();
                         billsfor.Show();
                         Hide();
-                    } 
+                    }
                     #endregion
-                    // 8
-                    // 
-                    // 5 5 0
-                    // 5 3 2
+
                     #region باقى اهندل حالة انى ابيع بس يكون اكبر من اول صف بس مش اكبر من كل المخزون
-                    else if (sale.quantity > firstenterdinstore.EndingStore && sale.quantity <= still)
+                    else if (sale.quantity > firstenterdinstore.EndingStore && firstenterdinstore.EndingStore != 0)
                     {
-
-                        var records = context.Stores.Where(p=>p.item==name).OrderBy(r => r.Id).ToList();
-                        int sum = 0; 
-
-                        foreach (var record in records)
-                        {
-                            sum += record.EndingStore;
-                           // Counter++;
-                            if (sum >= quantitynum.Value)
-                            {
-                                break;
-                            }
-                            context.Stores.Remove(record);
-                            context.SaveChanges();
-
-
-                        }
-
-                     
-                        //sumcounter += Counter - 1;
-
-                        //List<int> values = new List<int>();
-                        //values[0] = 0;    
-                        //values.Add(sumcounter);
-                        //var secondlastelement = values[values.Count()-2];
-                        //skip = values.Last()+sumcounter;
-
-
-
-                       
-
-
-                        var data = context.Stores.FirstOrDefault(p => p.item == name);
+                        var fi = context.Stores.Where(p => p.EndingStore != 0 && p.item == name).ToList();
+                        var remainingQuantity = (int)quantitynum.Value;
 
                         var sale2 = new Sales
                         {
+
 
                             clientID = selectedId,
                             Date = dateTimePicker1.Value,
@@ -211,40 +189,66 @@ namespace Companysystem.SalesForms
                             Price = priceNum.Value,
                             priceValue = quantitynum.Value * priceNum.Value,
                             NetPriceValue = (quantitynum.Value * priceNum.Value) - (discountnum.Value + commissionsnum.Value),
-
                         };
-                        context.Salesd.Add(sale2);
+                        context.Add(sale2);
                         context.SaveChanges();
 
-
-                      
-                        if (data is not null)
+                        foreach (var item in fi)
                         {
-                            var store = new Store
+                            if (remainingQuantity > item.EndingStore)
                             {
-                                Id =data.Id,
-                                outgoing = (int)quantitynum.Value,
-                                salesid = sale2.Id,
-                                BeginingStore = sum,
-                                EndingStore = sum-sale2.quantity,
-                                item = data.item,
-                                price = data.price,
-                                incoming = 0,
-                                PurchasesBill = data.PurchasesBill,
-                                priceUnit=data.priceUnit,
-                                InventoryCost =  data.priceUnit*(sum-sale2.quantity)//wrong data
-                                
-                                
+                                remainingQuantity -= item.EndingStore;
+                                item.outgoing += item.EndingStore;
+                                item.EndingStore = 0;
+                                var tans = new StoreTransaction
+                                {
+                                    storessId = item.Id,
+                                    purchasessId = item.PurchasesBillId,
+                                    salessId = sale2.Id,
+                                    quantity =item.outgoing,
+                                    
 
-                               
+                                };
 
-                            };
+                                context.Add(tans);
+                                context.SaveChanges();
+                            }
+                            else
+                            {
+                                item.EndingStore -= remainingQuantity;
+                                item.outgoing += remainingQuantity;
+                                remainingQuantity = 0;
 
-                            context.Stores.Remove(data);
-                            context.Stores.Add(store);
-                            context.SaveChanges();
-                            
+
+                                break; // Exit the loop as we have fulfilled the sale quantity
+                            }
                         }
+
+                        context.SaveChanges();
+                        MessageBox.Show("Store updated successfully!");
+               
+                        //firstenterdinstore.Id = firstenterdinstore.Id;
+                        //firstenterdinstore.price = firstenterdinstore.price;
+                        //firstenterdinstore.BeginingStore = firstenterdinstore.BeginingStore;
+                        //firstenterdinstore.incoming = firstenterdinstore.incoming;
+                        //firstenterdinstore.outgoing =firstenterdinstore.incoming;
+                        //firstenterdinstore.PurchasesBillId = firstenterdinstore.PurchasesBillId;
+                        //firstenterdinstore.EndingStore = 0;
+                        //firstenterdinstore.InventoryCost = firstenterdinstore.priceUnit * firstenterdinstore.EndingStore;
+                        //firstenterdinstore.item = firstenterdinstore.item;
+                        //firstenterdinstore.priceUnit = firstenterdinstore.priceUnit;
+
+
+                      //  MessageBox.Show("");
+
+
+
+
+
+                  
+
+
+
                         var billsfor = new BillsForms();
                         billsfor.Show();
                         Hide();

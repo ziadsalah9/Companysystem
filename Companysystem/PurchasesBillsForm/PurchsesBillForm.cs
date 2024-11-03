@@ -3,6 +3,7 @@ using Companysystem.Dtos;
 using Companysystem.ItemsForms;
 using Companysystem.Models;
 using Companysystem.SalesForms;
+using Companysystem.Supllierforms;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace Companysystem.PurchasesBillsForm
             if (suppliers.Count() <= 0)
             {
                 MessageBox.Show("لا يوجد موردين, من فضلك قم بالاضافة");
-                AddClientForm f = new AddClientForm();
+                ADDsupplierform f = new ADDsupplierform();
                 f.Show();
                 Hide();
 

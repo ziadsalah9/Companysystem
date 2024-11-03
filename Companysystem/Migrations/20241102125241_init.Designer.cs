@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Companysystem.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20241023091954_updatepurchasessidtonullable")]
-    partial class updatepurchasessidtonullable
+    [Migration("20241102125241_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -229,11 +229,15 @@ namespace Companysystem.Migrations
                     b.Property<decimal>("InventoryCost")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("PurchasesBillId")
+                    b.Property<int>("PurchasesBillId")
                         .HasColumnType("int");
 
                     b.Property<int>("incoming")
                         .HasColumnType("int");
+
+                    b.Property<string>("item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("outgoing")
                         .HasColumnType("int");
@@ -241,16 +245,45 @@ namespace Companysystem.Migrations
                     b.Property<decimal>("price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("salesid")
-                        .HasColumnType("int");
+                    b.Property<decimal>("priceUnit")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PurchasesBillId");
 
-                    b.HasIndex("salesid");
-
                     b.ToTable("Stores");
+                });
+
+            modelBuilder.Entity("Companysystem.Models.StoreTransaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("purchasessId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("salessId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("storessId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("purchasessId");
+
+                    b.HasIndex("salessId");
+
+                    b.HasIndex("storessId");
+
+                    b.ToTable("StoresTransaction");
                 });
 
             modelBuilder.Entity("Companysystem.Models.Supplier", b =>
@@ -312,16 +345,38 @@ namespace Companysystem.Migrations
                 {
                     b.HasOne("Companysystem.Models.Purchases", "PurchasesBill")
                         .WithMany()
-                        .HasForeignKey("PurchasesBillId");
+                        .HasForeignKey("PurchasesBillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PurchasesBill");
+                });
+
+            modelBuilder.Entity("Companysystem.Models.StoreTransaction", b =>
+                {
+                    b.HasOne("Companysystem.Models.Purchases", "Purchases")
+                        .WithMany()
+                        .HasForeignKey("purchasessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Companysystem.Models.Sales", "Sales")
                         .WithMany()
-                        .HasForeignKey("salesid")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("salessId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
-                    b.Navigation("PurchasesBill");
+                    b.HasOne("Companysystem.Models.Store", "Store")
+                        .WithMany()
+                        .HasForeignKey("storessId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Purchases");
 
                     b.Navigation("Sales");
+
+                    b.Navigation("Store");
                 });
 #pragma warning restore 612, 618
         }

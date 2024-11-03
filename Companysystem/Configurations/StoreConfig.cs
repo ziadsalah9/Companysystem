@@ -26,11 +26,6 @@ namespace Companysystem.Configurations
           //.HasForeignKey(s => s.PurchasesBillId)
           //.OnDelete(DeleteBehavior.Cascade);
 
-            builder
-                .HasOne(s => s.Sales)
-                .WithMany()
-                .HasForeignKey(s => s.salesid)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

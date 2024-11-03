@@ -14,7 +14,7 @@ namespace Companysystem.Models
 
         [ForeignKey(nameof(PurchasesBill))]        
         
-        public int? PurchasesBillId { get; set; }
+        public int PurchasesBillId { get; set; }
         public Purchases PurchasesBill { get; set; }
 
         public decimal price { get; set; }
@@ -29,8 +29,7 @@ namespace Companysystem.Models
 
 
         
-        public int? salesid { get; set; }
-        public Sales Sales { get; set; }
+      
 
         public string item { get; set;}
         
