@@ -59,9 +59,9 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(369, 146);
+            label2.Location = new Point(320, 146);
             label2.Name = "label2";
-            label2.Size = new Size(28, 35);
+            label2.Size = new Size(77, 35);
             label2.TabIndex = 2;
             label2.Text = "0";
             label2.Click += label2_Click;
@@ -70,7 +70,7 @@
             // 
             label3.Font = new Font("Segoe UI", 15F);
             label3.ForeColor = Color.MediumSeaGreen;
-            label3.Location = new Point(292, 146);
+            label3.Location = new Point(240, 146);
             label3.Name = "label3";
             label3.Size = new Size(62, 35);
             label3.TabIndex = 3;
@@ -105,6 +105,7 @@
             button3.TabIndex = 7;
             button3.Text = "لا";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
             // 
             // OkOrNotWhenQuanityGreaterThanEndingStore
             // 

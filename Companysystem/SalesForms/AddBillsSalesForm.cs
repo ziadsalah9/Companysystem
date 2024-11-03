@@ -151,7 +151,7 @@ namespace Companysystem.SalesForms
                         {
                             purchasessId = firstenterdinstore.PurchasesBillId,
                             storessId = firstenterdinstore.Id,
-                            quantity = firstenterdinstore.outgoing,
+                            quantity = sale.quantity,
                             salessId = sale.Id
                         };
 
@@ -169,7 +169,7 @@ namespace Companysystem.SalesForms
                     #endregion
 
                     #region باقى اهندل حالة انى ابيع بس يكون اكبر من اول صف بس مش اكبر من كل المخزون
-                    else if (sale.quantity > firstenterdinstore.EndingStore && firstenterdinstore.EndingStore != 0)
+                    else if (sale.quantity > firstenterdinstore.EndingStore && firstenterdinstore.EndingStore != 0 && sale.quantity<=still)
                     {
                         var fi = context.Stores.Where(p => p.EndingStore != 0 && p.item == name).ToList();
                         var remainingQuantity = (int)quantitynum.Value;
@@ -199,16 +199,18 @@ namespace Companysystem.SalesForms
                             {
                                 remainingQuantity -= item.EndingStore;
                                 item.outgoing += item.EndingStore;
-                                item.EndingStore = 0;
+                                item.InventoryCost -= item.EndingStore * item.priceUnit; // Update the cost
+
                                 var tans = new StoreTransaction
                                 {
                                     storessId = item.Id,
                                     purchasessId = item.PurchasesBillId,
                                     salessId = sale2.Id,
-                                    quantity =item.outgoing,
+                                    quantity =item.EndingStore,
                                     
 
                                 };
+                                item.EndingStore = 0;
 
                                 context.Add(tans);
                                 context.SaveChanges();
@@ -217,7 +219,23 @@ namespace Companysystem.SalesForms
                             {
                                 item.EndingStore -= remainingQuantity;
                                 item.outgoing += remainingQuantity;
+                                item.InventoryCost -= item.EndingStore * item.priceUnit; // Update the cost
+
+
+                                var tans = new StoreTransaction
+                                {
+                                    storessId = item.Id,
+                                    purchasessId = item.PurchasesBillId,
+                                    salessId = sale2.Id,
+                                    quantity = remainingQuantity,
+
+
+                                };
                                 remainingQuantity = 0;
+
+
+                                context.Add(tans);
+                                context.SaveChanges();
 
 
                                 break; // Exit the loop as we have fulfilled the sale quantity
@@ -259,6 +277,7 @@ namespace Companysystem.SalesForms
                     else if (sale.quantity>firstenterdinstore.EndingStore && sale.quantity>still)
                     {
 
+                        var fi = context.Stores.Where(p => p.EndingStore != 0 && p.item == name).ToList();
 
 
 
@@ -294,10 +313,10 @@ namespace Companysystem.SalesForms
                         // context.Stores.Remove(firstenterdinstore);
                         // context.SaveChanges();
 
-            
 
 
-                        OkOrNotWhenQuanityGreaterThanEndingStore okornott = new OkOrNotWhenQuanityGreaterThanEndingStore(still,sale2,firstenterdinstore);
+
+                        OkOrNotWhenQuanityGreaterThanEndingStore okornott = new OkOrNotWhenQuanityGreaterThanEndingStore(still,sale2,fi);
                         okornott.Show();
                         Hide();
 
