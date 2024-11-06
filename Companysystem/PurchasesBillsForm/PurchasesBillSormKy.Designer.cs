@@ -30,6 +30,8 @@
         {
             pictureBox1 = new PictureBox();
             dv = new Krypton.Toolkit.KryptonDataGridView();
+            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dv).BeginInit();
             SuspendLayout();
@@ -68,11 +70,56 @@
             dv.TabIndex = 40;
             dv.CellContentClick += dv_CellContentClick;
             // 
+            // kryptonButton1
+            // 
+            kryptonButton1.Location = new Point(840, 126);
+            kryptonButton1.Name = "kryptonButton1";
+            kryptonButton1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            kryptonButton1.Size = new Size(626, 44);
+            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(6, 174, 224);
+            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton1.StateCommon.Back.ColorAngle = 45F;
+            kryptonButton1.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 224);
+            kryptonButton1.StateCommon.Border.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton1.StateCommon.Border.ColorAngle = 45F;
+            kryptonButton1.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonButton1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton1.StateCommon.Border.Rounding = 20F;
+            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton1.TabIndex = 42;
+            kryptonButton1.Values.Text = "اضافة فاتورة مشتريات";
+            kryptonButton1.Click += kryptonButton1_Click;
+            // 
+            // kryptonButton2
+            // 
+            kryptonButton2.Location = new Point(61, 126);
+            kryptonButton2.Name = "kryptonButton2";
+            kryptonButton2.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            kryptonButton2.Size = new Size(626, 44);
+            kryptonButton2.StateCommon.Back.Color1 = Color.FromArgb(255, 0, 50);
+            kryptonButton2.StateCommon.Back.Color2 = Color.FromArgb(255, 0, 50);
+            kryptonButton2.StateCommon.Back.ColorAngle = 45F;
+            kryptonButton2.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 224);
+            kryptonButton2.StateCommon.Border.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton2.StateCommon.Border.ColorAngle = 45F;
+            kryptonButton2.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonButton2.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton2.StateCommon.Border.Rounding = 20F;
+            kryptonButton2.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton2.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton2.StateCommon.Content.ShortText.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton2.TabIndex = 43;
+            kryptonButton2.Values.Text = "استرجاع فاتورة";
+            // 
             // PurchasesBillSormKy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1478, 734);
+            Controls.Add(kryptonButton2);
+            Controls.Add(kryptonButton1);
             Controls.Add(pictureBox1);
             Controls.Add(dv);
             ForeColor = Color.Black;
@@ -90,5 +137,7 @@
 
         private PictureBox pictureBox1;
         private Krypton.Toolkit.KryptonDataGridView dv;
+        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton kryptonButton2;
     }
 }

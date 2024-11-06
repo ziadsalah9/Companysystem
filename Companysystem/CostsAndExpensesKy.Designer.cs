@@ -65,7 +65,7 @@
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(1228, 170);
+            kryptonLabel1.Location = new Point(1288, 170);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(73, 40);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -74,7 +74,7 @@
             // 
             // kryptonLabel2
             // 
-            kryptonLabel2.Location = new Point(1228, 96);
+            kryptonLabel2.Location = new Point(1272, 96);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(89, 40);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -83,7 +83,7 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(1228, 256);
+            kryptonLabel3.Location = new Point(1261, 254);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(100, 40);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -92,7 +92,7 @@
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(1228, 337);
+            kryptonLabel4.Location = new Point(1240, 339);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(121, 40);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -110,7 +110,7 @@
             // 
             // kryptonLabel6
             // 
-            kryptonLabel6.Location = new Point(445, 426);
+            kryptonLabel6.Location = new Point(586, 424);
             kryptonLabel6.Name = "kryptonLabel6";
             kryptonLabel6.Size = new Size(78, 40);
             kryptonLabel6.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -119,7 +119,7 @@
             // 
             // kryptonLabel7
             // 
-            kryptonLabel7.Location = new Point(445, 337);
+            kryptonLabel7.Location = new Point(604, 337);
             kryptonLabel7.Name = "kryptonLabel7";
             kryptonLabel7.Size = new Size(60, 40);
             kryptonLabel7.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -128,7 +128,7 @@
             // 
             // kryptonLabel8
             // 
-            kryptonLabel8.Location = new Point(445, 256);
+            kryptonLabel8.Location = new Point(566, 254);
             kryptonLabel8.Name = "kryptonLabel8";
             kryptonLabel8.Size = new Size(98, 40);
             kryptonLabel8.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -146,7 +146,7 @@
             // 
             // kryptonLabel10
             // 
-            kryptonLabel10.Location = new Point(445, 170);
+            kryptonLabel10.Location = new Point(572, 170);
             kryptonLabel10.Name = "kryptonLabel10";
             kryptonLabel10.Size = new Size(92, 40);
             kryptonLabel10.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);

@@ -98,5 +98,13 @@ namespace Companysystem.PurchasesBillsForm
             form.Show();
             Hide();
         }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            AddPurchaseBillKy addPurchaseBillKy = new AddPurchaseBillKy();
+            addPurchaseBillKy.Show();
+            Hide();
+
+        }
     }
 }
