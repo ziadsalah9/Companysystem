@@ -18,13 +18,14 @@ namespace Companysystem.Configurations
             builder.Property(p => p.NetPriceValue).HasColumnType("decimal(18,2)");
             builder.Property(p => p.Commissions).HasColumnType("decimal(18,2)");
             builder.Property(p => p.deduct).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.quantity).HasColumnType("decimal(18,2)");
 
             //builder
             //.HasOne(s => s.Stores)
             //.WithMany()
             //.HasForeignKey(s => s.storesid)
             //.OnDelete(DeleteBehavior.NoAction)
-            
+
             //;
 
         }

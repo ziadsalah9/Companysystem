@@ -30,7 +30,7 @@ namespace Companysystem.Models
 
 
 
-        public int quantity {  get; set; }
+        public decimal quantity {  get; set; }
 
         public decimal Price { get; set; }
 

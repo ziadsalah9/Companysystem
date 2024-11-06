@@ -257,13 +257,13 @@
             kryptonquantity.Increment = new decimal(new int[] { 1, 0, 0, 0 });
             kryptonquantity.Location = new Point(912, 558);
             kryptonquantity.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            kryptonquantity.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
+            kryptonquantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             kryptonquantity.Name = "kryptonquantity";
             kryptonquantity.Size = new Size(273, 38);
             kryptonquantity.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             kryptonquantity.StateCommon.Border.Rounding = 20F;
             kryptonquantity.TabIndex = 34;
-            kryptonquantity.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            kryptonquantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // kryptonDate
             // 

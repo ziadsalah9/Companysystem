@@ -174,7 +174,7 @@ namespace Companysystem.SalesForms
                     else if (sale.quantity > firstenterdinstore.EndingStore && firstenterdinstore.EndingStore != 0 && sale.quantity<=still)
                     {
                         var fi = context.Stores.Where(p => p.EndingStore != 0 && p.item == name).ToList();
-                        var remainingQuantity = (int)quantitynum.Value;
+                        var remainingQuantity = quantitynum.Value;
 
                         var sale2 = new Sales
                         {

@@ -27,7 +27,7 @@ namespace Companysystem.Dtos
 
         public string Item { get; set; }
 
-        public int quantity { get; set; }
+        public decimal quantity { get; set; }
 
         public decimal Price { get; set; }
 

@@ -53,13 +53,14 @@ namespace Companysystem.PurchasesBillsForm
                 var value = kryptonprice.Value * kryptonquantity.Value;
                 var netpricevalue = value - kryptondiscount.Value + (kryptontransport.Value + kryptonjamaric.Value + kryptonother.Value);
 
+               
                 var data = new Purchases
                 {
                     Date = kryptonDate.Value,
                     month = kryptonDate.Value.Month.ToString(),
                     SupplierId = selectedId,
                     ItemId = itemfk,
-                    quantity = (int)kryptonquantity.Value,
+                    quantity = kryptonquantity.Value,
 
                     Price = kryptonprice.Value,
                     PriceValue = value,
@@ -71,7 +72,7 @@ namespace Companysystem.PurchasesBillsForm
                     NetPriceValue = netpricevalue,
                     priceUnit = ((decimal)Math.Pow(Convert.ToDouble(kryptonquantity.Value), -1.00)) * netpricevalue
                 };
-
+               
                 context.Purchases.Add(data);
                 context.SaveChanges();
 
@@ -81,10 +82,10 @@ namespace Companysystem.PurchasesBillsForm
                 {
                     PurchasesBillId = data.Id,
                     price = data.Price * 1.5m,
-                    BeginingStore = (int)kryptonbigningnum.Value,
+                    BeginingStore = kryptonbigningnum.Value,
                     incoming = data.quantity,
-                    EndingStore = data.quantity + (int)kryptonbigningnum.Value,
-                    InventoryCost = (data.quantity + (int)kryptonbigningnum.Value) * data.priceUnit,
+                    EndingStore = data.quantity + kryptonbigningnum.Value,
+                    InventoryCost = (data.quantity + kryptonbigningnum.Value) * data.priceUnit,
                     item = name,
                     priceUnit = data.priceUnit
                 };

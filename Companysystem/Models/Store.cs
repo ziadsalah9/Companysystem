@@ -20,10 +20,10 @@ namespace Companysystem.Models
         public decimal price { get; set; }
 
 
-        public int BeginingStore { get; set; }
-        public int incoming { get; set; }
-        public int outgoing { get; set; }
-        public int EndingStore { get; set; }
+        public decimal BeginingStore { get; set; }
+        public decimal incoming { get; set; }
+        public decimal outgoing { get; set; }
+        public decimal EndingStore { get; set; }
 
         public decimal InventoryCost { get; set; }
 

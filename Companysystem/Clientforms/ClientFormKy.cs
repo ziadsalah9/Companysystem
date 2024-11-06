@@ -1,4 +1,5 @@
 ﻿using Companysystem.Models;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace Companysystem.Clientforms
         public ClientFormKy()
         {
             InitializeComponent();
+            LoadData();
             // تأكد من تعيين WrapMode إلى DataGridViewTriState.True
             dv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
@@ -29,14 +31,36 @@ namespace Companysystem.Clientforms
             dv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        private void LoadData() {
+
+            dv.ColumnCount = 4;
+
+
+            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+            editButton.HeaderText = "تعديل";
+            editButton.Text = "تعديل";
+            editButton.UseColumnTextForButtonValue = true;
+            dv.Columns.Add(editButton);
+
+            DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+            deleteButton.HeaderText = "حذف";
+            deleteButton.Text = "حذف";
+            deleteButton.UseColumnTextForButtonValue = true;
+            dv.Columns.Add(deleteButton);
+
+      //      dv.CellClick += dv_CellClick;
+
+
+        }
         private void ClientFormKy_Load(object sender, EventArgs e)
         {
-
+            
             using (var context = new StoreContext())
             {
 
                 var data = context.clients.ToList();
                 dv.DataSource = data;
+
 
 
                 dv.Columns["Id"].HeaderText = "رقم العميل";

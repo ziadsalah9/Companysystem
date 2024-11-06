@@ -19,6 +19,11 @@ namespace Companysystem.Configurations
             builder.Property(p => p.InventoryCost).HasColumnType("decimal(18,2)");
             builder.Property(p => p.priceUnit).HasColumnType("decimal(18,2)");
 
+            builder.Property(p => p.incoming).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.outgoing).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.BeginingStore).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.EndingStore).HasColumnType("decimal(18,2)");
+
             builder.HasKey(p => p.Id);
             //builder
           //.HasOne(s => s.PurchasesBill)

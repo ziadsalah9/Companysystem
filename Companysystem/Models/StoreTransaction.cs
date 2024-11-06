@@ -32,6 +32,6 @@ namespace Companysystem.Models
         public Sales Sales{ get; set; }
 
 
-        public int quantity { get; set; }
+        public decimal quantity { get; set; }
     }
 }

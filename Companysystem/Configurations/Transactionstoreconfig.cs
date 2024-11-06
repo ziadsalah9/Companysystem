@@ -13,6 +13,9 @@ namespace Companysystem.Configurations
     {
         public void Configure(EntityTypeBuilder<StoreTransaction> builder)
         {
+            builder.Property(p => p.quantity).HasColumnType("decimal(18,2)");
+
+
             builder
             .HasOne(s => s.Sales)
             .WithMany()

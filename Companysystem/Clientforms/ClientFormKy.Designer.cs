@@ -122,9 +122,9 @@
             // panel1
             // 
             panel1.Controls.Add(dv);
-            panel1.Location = new Point(789, 51);
+            panel1.Location = new Point(636, 40);
             panel1.Name = "panel1";
-            panel1.Size = new Size(559, 552);
+            panel1.Size = new Size(702, 524);
             panel1.TabIndex = 6;
             // 
             // dv
@@ -137,7 +137,7 @@
             dv.Name = "dv";
             dv.RightToLeft = RightToLeft.Yes;
             dv.RowHeadersWidth = 51;
-            dv.Size = new Size(559, 552);
+            dv.Size = new Size(702, 524);
             dv.StateCommon.Background.Color1 = Color.FromArgb(250, 252, 252);
             dv.StateCommon.Background.Color2 = Color.FromArgb(250, 252, 252);
             dv.StateCommon.Background.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Form;

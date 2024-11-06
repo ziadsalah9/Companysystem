@@ -21,25 +21,24 @@ namespace Companysystem
 
         private void TestForm_Load(object sender, EventArgs e)
         {
-            using (var context = new StoreContext())
-            {
-                var records = context.Stores.OrderBy(r => r.Id).ToList();
-                int sum = 0;
+            //using (var context = new StoreContext())
+            //{
+            //    var records = context.Stores.OrderBy(r => r.Id).ToList();
+            //    int sum = 0;
 
-                foreach (var record in records)
-                {
-                    sum += record.EndingStore;
-                    if (sum >= 13)
-                    {
-                        break;
-                    }
-                    context.Stores.Remove(record);
-                }
+            //    foreach (var record in records)
+            //    {
+            //        sum += record.EndingStore;
+            //        if (sum >= 13)
+            //        {
+            //            break;
+            //        }
+            //        context.Stores.Remove(record);
+            //    }
 
-                context.SaveChanges();
+            //    context.SaveChanges();
 
                // dataGridView1.DataSource = aggregatedQuantities.Select(q => new { EndingStore = q }).ToList();
             }
         }
-    }
-}
+   }

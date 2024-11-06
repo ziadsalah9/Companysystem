@@ -18,8 +18,8 @@ namespace Companysystem.SalesForms
     {
         List <Store >stores;
         Sales sales1;
-        int still;
-        public OkOrNotWhenQuanityGreaterThanEndingStore(int number, Sales sales, List <Store> fii)
+        decimal still;
+        public OkOrNotWhenQuanityGreaterThanEndingStore(decimal number, Sales sales, List <Store> fii)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -49,7 +49,7 @@ namespace Companysystem.SalesForms
 
             using (var context = new StoreContext())
             {
-                var remainingQuantity = int.Parse(label2.Text);
+                var remainingQuantity = decimal.Parse(label2.Text);
 
                 sales1.quantity = remainingQuantity;
 
