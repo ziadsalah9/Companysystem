@@ -87,6 +87,7 @@
             Controls.Add(label1);
             Name = "deleteEXPANSES";
             Text = "deleteEXPANSES";
+            Load += deleteEXPANSES_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();

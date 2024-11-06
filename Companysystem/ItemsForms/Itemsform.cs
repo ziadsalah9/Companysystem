@@ -16,6 +16,8 @@ namespace Companysystem.ItemsForms
         public Itemsform()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void Btnback_Click(object sender, EventArgs e)

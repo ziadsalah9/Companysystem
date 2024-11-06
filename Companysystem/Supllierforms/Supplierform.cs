@@ -15,7 +15,8 @@ namespace Companysystem.Supllierforms
     {
         public Supplierform()
         {
-            InitializeComponent();
+            InitializeComponent(); this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void btnaddsupplier_Click(object sender, EventArgs e)

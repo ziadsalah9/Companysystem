@@ -17,7 +17,8 @@ namespace Companysystem.StoreForm
     {
         public UpdateStore()
         {
-            InitializeComponent();
+            InitializeComponent(); this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
 

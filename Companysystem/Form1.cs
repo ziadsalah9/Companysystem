@@ -1,5 +1,6 @@
 using AutoMapper;
 using Companysystem.Clientforms;
+using Companysystem.ItemsForms;
 using Companysystem.Models;
 using Companysystem.PurchasesBillsForm;
 using Companysystem.SalesForms;
@@ -17,6 +18,8 @@ namespace Companysystem
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
 
@@ -27,7 +30,7 @@ namespace Companysystem
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ClientForm client = new ClientForm();
+            ClientFormKy client = new ClientFormKy();
             client.Show();
             Hide();
 
@@ -42,14 +45,14 @@ namespace Companysystem
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ItemsForms.Itemsform itform = new ItemsForms.Itemsform();
+            AddItemKy itform = new ItemsForms.AddItemKy();
             itform.Show();
             Hide();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            CostsAndExpenses c = new CostsAndExpenses();
+            CostsAndExpensesKy c = new CostsAndExpensesKy();
             c.Show();
             Hide();
         }
@@ -63,7 +66,7 @@ namespace Companysystem
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            PurchsesBillForm purchsesBillForm = new PurchsesBillForm();
+            PurchasesBillSormKy purchsesBillForm = new ();
             purchsesBillForm.Show();
             Hide();
 
@@ -73,7 +76,6 @@ namespace Companysystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.StartPosition = FormStartPosition.CenterScreen;
 
         }
 

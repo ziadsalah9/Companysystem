@@ -76,6 +76,7 @@
             // ShowBilldv
             // 
             ShowBilldv.AllowUserToDeleteRows = false;
+            ShowBilldv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ShowBilldv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ShowBilldv.Location = new Point(12, 234);
             ShowBilldv.Name = "ShowBilldv";

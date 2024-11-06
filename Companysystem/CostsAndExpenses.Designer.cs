@@ -47,7 +47,6 @@
             baryedtxt = new TextBox();
             carstxt = new TextBox();
             tamenattxt = new TextBox();
-            othertxt = new TextBox();
             BtnTotal = new Button();
             button1 = new Button();
             button2 = new Button();
@@ -56,7 +55,9 @@
             button4 = new Button();
             button3 = new Button();
             pictureBox1 = new PictureBox();
+            othernum = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)othernum).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -64,7 +65,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(893, 100);
+            label1.Location = new Point(1102, 100);
             label1.Name = "label1";
             label1.Size = new Size(56, 28);
             label1.TabIndex = 0;
@@ -75,7 +76,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.Navy;
-            label2.Location = new Point(884, 46);
+            label2.Location = new Point(1093, 46);
             label2.Name = "label2";
             label2.Size = new Size(65, 28);
             label2.TabIndex = 1;
@@ -87,7 +88,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.Navy;
-            label3.Location = new Point(879, 206);
+            label3.Location = new Point(1088, 206);
             label3.Name = "label3";
             label3.Size = new Size(70, 28);
             label3.TabIndex = 2;
@@ -99,7 +100,7 @@
             label4.FlatStyle = FlatStyle.Flat;
             label4.Font = new Font("Segoe UI", 12F);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(879, 147);
+            label4.Location = new Point(1088, 147);
             label4.Name = "label4";
             label4.Size = new Size(70, 28);
             label4.TabIndex = 3;
@@ -110,7 +111,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.Navy;
-            label5.Location = new Point(843, 260);
+            label5.Location = new Point(1052, 260);
             label5.Name = "label5";
             label5.Size = new Size(106, 28);
             label5.TabIndex = 4;
@@ -121,7 +122,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
             label6.ForeColor = Color.Navy;
-            label6.Location = new Point(269, 46);
+            label6.Location = new Point(306, 60);
             label6.Name = "label6";
             label6.Size = new Size(149, 28);
             label6.TabIndex = 5;
@@ -132,7 +133,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
             label7.ForeColor = Color.Navy;
-            label7.Location = new Point(283, 100);
+            label7.Location = new Point(320, 114);
             label7.Name = "label7";
             label7.Size = new Size(73, 28);
             label7.TabIndex = 6;
@@ -143,7 +144,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
             label8.ForeColor = Color.Navy;
-            label8.Location = new Point(297, 206);
+            label8.Location = new Point(334, 220);
             label8.Name = "label8";
             label8.Size = new Size(46, 28);
             label8.TabIndex = 7;
@@ -154,7 +155,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
             label9.ForeColor = Color.Navy;
-            label9.Location = new Point(286, 147);
+            label9.Location = new Point(323, 161);
             label9.Name = "label9";
             label9.Size = new Size(70, 28);
             label9.TabIndex = 8;
@@ -165,7 +166,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F);
             label10.ForeColor = Color.Navy;
-            label10.Location = new Point(297, 260);
+            label10.Location = new Point(334, 274);
             label10.Name = "label10";
             label10.Size = new Size(50, 28);
             label10.TabIndex = 9;
@@ -173,73 +174,66 @@
             // 
             // internettxt
             // 
-            internettxt.Location = new Point(574, 264);
+            internettxt.Location = new Point(783, 264);
             internettxt.Name = "internettxt";
             internettxt.Size = new Size(180, 27);
             internettxt.TabIndex = 11;
             // 
             // rintstxt
             // 
-            rintstxt.Location = new Point(574, 207);
+            rintstxt.Location = new Point(783, 207);
             rintstxt.Name = "rintstxt";
             rintstxt.Size = new Size(180, 27);
             rintstxt.TabIndex = 12;
             // 
             // salariestxt
             // 
-            salariestxt.Location = new Point(574, 151);
+            salariestxt.Location = new Point(783, 151);
             salariestxt.Name = "salariestxt";
             salariestxt.Size = new Size(180, 27);
             salariestxt.TabIndex = 13;
             // 
             // byantxt
             // 
-            byantxt.Location = new Point(574, 104);
+            byantxt.Location = new Point(783, 104);
             byantxt.Name = "byantxt";
             byantxt.Size = new Size(180, 27);
             byantxt.TabIndex = 14;
             // 
             // wegtxt
             // 
-            wegtxt.Location = new Point(50, 46);
+            wegtxt.Location = new Point(87, 60);
             wegtxt.Name = "wegtxt";
             wegtxt.Size = new Size(180, 27);
             wegtxt.TabIndex = 15;
             // 
             // baryedtxt
             // 
-            baryedtxt.Location = new Point(50, 210);
+            baryedtxt.Location = new Point(87, 224);
             baryedtxt.Name = "baryedtxt";
             baryedtxt.Size = new Size(180, 27);
             baryedtxt.TabIndex = 16;
             // 
             // carstxt
             // 
-            carstxt.Location = new Point(50, 151);
+            carstxt.Location = new Point(87, 165);
             carstxt.Name = "carstxt";
             carstxt.Size = new Size(180, 27);
             carstxt.TabIndex = 17;
             // 
             // tamenattxt
             // 
-            tamenattxt.Location = new Point(50, 101);
+            tamenattxt.Location = new Point(87, 115);
             tamenattxt.Name = "tamenattxt";
             tamenattxt.Size = new Size(180, 27);
             tamenattxt.TabIndex = 18;
             // 
-            // othertxt
-            // 
-            othertxt.Location = new Point(50, 264);
-            othertxt.Name = "othertxt";
-            othertxt.Size = new Size(180, 27);
-            othertxt.TabIndex = 19;
-            // 
             // BtnTotal
             // 
             BtnTotal.BackColor = SystemColors.ActiveCaption;
-            BtnTotal.Location = new Point(75, 387);
+            BtnTotal.Location = new Point(35, 531);
             BtnTotal.Name = "BtnTotal";
-            BtnTotal.Size = new Size(129, 39);
+            BtnTotal.Size = new Size(203, 39);
             BtnTotal.TabIndex = 20;
             BtnTotal.Text = "الاجمالى";
             BtnTotal.UseVisualStyleBackColor = false;
@@ -247,7 +241,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(574, 315);
+            button1.Location = new Point(783, 346);
             button1.Name = "button1";
             button1.Size = new Size(375, 29);
             button1.TabIndex = 22;
@@ -257,7 +251,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(574, 367);
+            button2.Location = new Point(783, 398);
             button2.Name = "button2";
             button2.Size = new Size(375, 29);
             button2.TabIndex = 23;
@@ -267,22 +261,22 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(574, 58);
+            dateTimePicker1.Location = new Point(783, 58);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(180, 27);
             dateTimePicker1.TabIndex = 24;
             // 
             // total
             // 
-            total.Location = new Point(32, 443);
+            total.Location = new Point(35, 590);
             total.Name = "total";
-            total.Size = new Size(125, 27);
+            total.Size = new Size(203, 27);
             total.TabIndex = 25;
             total.TextChanged += textBox1_TextChanged;
             // 
             // button4
             // 
-            button4.Location = new Point(574, 416);
+            button4.Location = new Point(783, 447);
             button4.Name = "button4";
             button4.Size = new Size(375, 29);
             button4.TabIndex = 27;
@@ -294,9 +288,9 @@
             // 
             button3.BackColor = SystemColors.ControlLightLight;
             button3.ForeColor = Color.Coral;
-            button3.Location = new Point(342, 367);
+            button3.Location = new Point(783, 502);
             button3.Name = "button3";
-            button3.Size = new Size(192, 78);
+            button3.Size = new Size(375, 101);
             button3.TabIndex = 28;
             button3.Text = "تحليل المصروفات خلال العام";
             button3.UseVisualStyleBackColor = false;
@@ -307,17 +301,28 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(70, 26);
+            pictureBox1.Size = new Size(77, 33);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // othernum
+            // 
+            othernum.AutoSize = true;
+            othernum.Location = new Point(87, 279);
+            othernum.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            othernum.Name = "othernum";
+            othernum.Size = new Size(180, 27);
+            othernum.TabIndex = 30;
+            othernum.ValueChanged += numericUpDown1_ValueChanged;
+            // 
             // CostsAndExpenses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(978, 482);
+            ClientSize = new Size(1221, 656);
+            Controls.Add(othernum);
             Controls.Add(pictureBox1);
             Controls.Add(button3);
             Controls.Add(button4);
@@ -326,7 +331,6 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(BtnTotal);
-            Controls.Add(othertxt);
             Controls.Add(tamenattxt);
             Controls.Add(carstxt);
             Controls.Add(baryedtxt);
@@ -345,10 +349,14 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            MaximumSize = new Size(1239, 703);
+            MinimumSize = new Size(1239, 703);
             Name = "CostsAndExpenses";
             Text = "CostsAndExpenses";
             Load += CostsAndExpenses_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)othernum).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -373,7 +381,6 @@
         private TextBox baryedtxt;
         private TextBox carstxt;
         private TextBox tamenattxt;
-        private TextBox othertxt;
         private Button BtnTotal;
         private Button button1;
         private Button button2;
@@ -382,5 +389,6 @@
         private Button button4;
         private Button button3;
         private PictureBox pictureBox1;
+        private NumericUpDown othernum;
     }
 }

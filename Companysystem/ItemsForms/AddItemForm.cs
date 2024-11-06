@@ -16,6 +16,8 @@ namespace Companysystem.ItemsForms
         public AddItemForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
 
@@ -51,6 +53,11 @@ namespace Companysystem.ItemsForms
             Itemsform itemsform = new Itemsform();
             itemsform.Show();
             Hide();
+        }
+
+        private void AddItemForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,8 @@ namespace Companysystem
     {
         public CostsAndExpenses()
         {
-            InitializeComponent();
+            InitializeComponent(); this.StartPosition = FormStartPosition.CenterScreen;
+
 
         }
 
@@ -29,17 +31,80 @@ namespace Companysystem
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker1.Value;
-            decimal salary = decimal.Parse(salariestxt.Text);
-            decimal cars = decimal.Parse(carstxt.Text);
-            decimal weg = decimal.Parse(wegtxt.Text);
-            decimal rent = decimal.Parse(rintstxt.Text);
-            decimal insurance = decimal.Parse(tamenattxt.Text);
-            decimal mail = decimal.Parse(baryedtxt.Text);
+            string title = "Error";
+
+
+            if (string.IsNullOrWhiteSpace(byantxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للبيان", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             decimal statment = decimal.Parse(byantxt.Text);
+
+
+            if (string.IsNullOrWhiteSpace(salariestxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للراتب", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal salary = decimal.Parse(salariestxt.Text);
+
+
+
+            if (string.IsNullOrWhiteSpace(rintstxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للايجارات", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal rent = decimal.Parse(rintstxt.Text);
+
+            if (string.IsNullOrWhiteSpace(internettxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للتيلفون والنت", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             decimal internetphone = decimal.Parse(internettxt.Text);
-            decimal other = decimal.Parse(othertxt.Text);
+
+            if (string.IsNullOrWhiteSpace(wegtxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للمياه والكهرباء والغاز", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal weg = decimal.Parse(wegtxt.Text);
 
 
+
+            if (string.IsNullOrWhiteSpace(tamenattxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للتأمينات", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal insurance = decimal.Parse(tamenattxt.Text);
+
+
+            if (string.IsNullOrWhiteSpace(carstxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للسيارت", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal cars = decimal.Parse(carstxt.Text);
+
+          
+
+
+
+            if (string.IsNullOrWhiteSpace(baryedtxt.Text))
+            {
+                MessageBox.Show("من فضلك ادخل قيمة للبريد", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal mail = decimal.Parse(baryedtxt.Text);
+
+
+
+      
+
+            decimal other = othernum.Value;
 
             using (var context = new StoreContext())
             {
@@ -56,18 +121,26 @@ namespace Companysystem
                     Rints = rent,
                     WaterElectericityGas = weg,
                     Totalcost = salary + cars + weg + rent + insurance + mail + statment + internetphone + other,
-
-
-
                 };
 
                 context.CostsAndExpensesModels.Add(values);
                 context.SaveChanges();
             }
 
-            MessageBox.Show(" تمت الاضافة بنجاح ");
+            PlaySuccessSound();
+            string message = "تمت العملية بنجاح!";
+            string tittle = "نجاح";
+            MessageBox.Show(message, tittle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
+        private void PlaySuccessSound()
+        {
+            // تأكد من أن مسار الملف الصوتي صحيح
+            string soundFilePath = @"C:\path\to\your\soundfile.wav";
+            SoundPlayer player = new SoundPlayer(soundFilePath);
+            player.Play();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             ShowExpensesandcosts sh = new ShowExpensesandcosts();
@@ -118,6 +191,11 @@ namespace Companysystem
             Form1 form1 = new Form1();
             form1.Show();
             Hide();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

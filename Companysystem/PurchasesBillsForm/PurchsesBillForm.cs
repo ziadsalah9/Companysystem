@@ -24,6 +24,8 @@ namespace Companysystem.PurchasesBillsForm
         public PurchsesBillForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             context = new StoreContext();
             
         }

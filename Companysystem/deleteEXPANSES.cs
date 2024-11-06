@@ -16,6 +16,8 @@ namespace Companysystem
         public deleteEXPANSES()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void btndelete_TextChanged(object sender, EventArgs e)
@@ -48,6 +50,11 @@ namespace Companysystem
 
 
             }
+        }
+
+        private void deleteEXPANSES_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

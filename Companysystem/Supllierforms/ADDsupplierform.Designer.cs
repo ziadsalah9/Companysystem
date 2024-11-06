@@ -90,6 +90,7 @@
             MinimumSize = new Size(1207, 628);
             Name = "ADDsupplierform";
             Text = "ADDsupplierform";
+            Load += ADDsupplierform_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

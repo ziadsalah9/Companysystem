@@ -31,6 +31,8 @@ namespace Companysystem.SalesForms
         public BillsForms()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             context = new StoreContext();
         }
 

@@ -21,6 +21,8 @@ namespace Companysystem.SalesForms
         public AddBillsSalesForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             context = new StoreContext();
 
         }

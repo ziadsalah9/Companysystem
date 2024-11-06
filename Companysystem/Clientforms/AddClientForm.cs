@@ -12,11 +12,13 @@ using System.Windows.Forms;
 
 namespace Companysystem.Clientforms
 {
-    public partial class AddClientForm : Form
+    public partial class AddClientForm : Krypton.Toolkit.KryptonForm
     {
         public AddClientForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -59,15 +61,15 @@ namespace Companysystem.Clientforms
                 MessageBox.Show("تمت الاضافة بنجاح");
 
                 ClientForm client = new ClientForm();
-                    client.Show();
-                         Hide();
+                client.Show();
+                Hide();
 
 
 
             }
         }
 
-     
+
 
         private void clientnametxt_TextChanged(object sender, EventArgs e)
         {
@@ -79,6 +81,11 @@ namespace Companysystem.Clientforms
             ClientForm form = new ClientForm();
             form.Show();
             Hide();
+        }
+
+        private void AddClientForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

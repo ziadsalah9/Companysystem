@@ -15,7 +15,8 @@ namespace Companysystem.Supllierforms
     {
         public ADDsupplierform()
         {
-            InitializeComponent();
+            InitializeComponent(); this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -46,6 +47,11 @@ namespace Companysystem.Supllierforms
             Supplierform form = new Supplierform();
             form.Show();
             Hide();
+        }
+
+        private void ADDsupplierform_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

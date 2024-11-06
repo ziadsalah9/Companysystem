@@ -22,6 +22,8 @@ namespace Companysystem.SalesForms
         public OkOrNotWhenQuanityGreaterThanEndingStore(int number, Sales sales, List <Store> fii)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             still = number;
           //  label2.Text = number.ToString();
             stores = fii;

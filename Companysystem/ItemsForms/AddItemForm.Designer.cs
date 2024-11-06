@@ -90,6 +90,7 @@
             MinimumSize = new Size(1207, 628);
             Name = "AddItemForm";
             Text = "AddItemForm";
+            Load += AddItemForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

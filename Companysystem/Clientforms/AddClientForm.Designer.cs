@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddClientForm));
             clientnametxt = new TextBox();
             label1 = new Label();
             addbtn = new Button();
             pictureBox1 = new PictureBox();
+            kryptonCustomPaletteBase1 = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -77,6 +79,24 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // kryptonCustomPaletteBase1
+            // 
+            kryptonCustomPaletteBase1.BaseFont = new Font("Segoe UI", 9F);
+            kryptonCustomPaletteBase1.BaseFontSize = 9F;
+            kryptonCustomPaletteBase1.BasePaletteType = Krypton.Toolkit.BasePaletteType.Custom;
+            kryptonCustomPaletteBase1.ButtonSpecs.Close.ColorMap = Color.FromArgb(0, 0, 0, 0);
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Back.Color1 = Color.FromArgb(250, 252, 252);
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Back.Color2 = Color.FromArgb(250, 252, 252);
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.Rounding = 12F;
+            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = Color.FromArgb(250, 252, 252);
+            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = Color.FromArgb(250, 252, 252);
+            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
+            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new Padding(10, -1, -1, -1);
+            kryptonCustomPaletteBase1.ThemeName = "";
+            kryptonCustomPaletteBase1.UseKryptonFileDialogs = true;
+            // 
             // AddClientForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -86,11 +106,18 @@
             Controls.Add(addbtn);
             Controls.Add(label1);
             Controls.Add(clientnametxt);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             MaximumSize = new Size(1207, 628);
             MinimumSize = new Size(1207, 628);
             Name = "AddClientForm";
-            Text = "AddClientForm";
+            Palette = kryptonCustomPaletteBase1;
+            PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            ShadowValues.Colour = Color.FromArgb(250, 252, 252);
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "اضافة عميل";
+            TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
+            Load += AddClientForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -102,5 +129,6 @@
         private Label label1;
         private Button addbtn;
         private PictureBox pictureBox1;
+        private Krypton.Toolkit.KryptonCustomPaletteBase kryptonCustomPaletteBase1;
     }
 }

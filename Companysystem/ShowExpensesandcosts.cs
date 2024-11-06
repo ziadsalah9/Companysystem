@@ -16,6 +16,8 @@ namespace Companysystem
         public ShowExpensesandcosts()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void ShowExpensesandcosts_Load(object sender, EventArgs e)
@@ -50,6 +52,13 @@ namespace Companysystem
         private void dataGridViewCostsandexpans_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CostsAndExpenses costsAndExpenses = new CostsAndExpenses();
+            costsAndExpenses.Show();
+            Hide();
         }
     }
 }

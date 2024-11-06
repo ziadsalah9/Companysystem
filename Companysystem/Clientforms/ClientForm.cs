@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Companysystem.Clientforms
 {
-    public partial class ClientForm : Form
+    public partial class ClientForm : BaseForm
     {
         Responsive ResponsiveObj;
 
@@ -112,6 +112,11 @@ namespace Companysystem.Clientforms
                 var data = context.clients.ToList();
                 dataGridView1.DataSource = data;
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
