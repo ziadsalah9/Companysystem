@@ -40,11 +40,19 @@ namespace Companysystem.Clientforms
                     Name = kryptonTextBox2.Text,
                 };
 
-                context.clients.Add(data);
-                context.SaveChanges();
-                string message = "تمت العملية بنجاح!";
-                string tittle = "نجاح";
-                MessageBox.Show(message, tittle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string trimmedName = data.Name.Trim();
+
+                if (data.Name != "ادخل الاسم" && !string.IsNullOrEmpty(trimmedName))
+                {
+
+                    context.clients.Add(data);
+                    context.SaveChanges();
+                    string message = "تمت العملية بنجاح!";
+                    string tittle = "نجاح";
+
+                    MessageBox.Show(message, tittle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 ClientFormKy supplierform = new ();
                 supplierform.Show();

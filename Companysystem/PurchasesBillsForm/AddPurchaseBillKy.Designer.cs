@@ -49,6 +49,8 @@
             kryptonquantity = new Krypton.Toolkit.KryptonNumericUpDown();
             kryptonDate = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // kryptonListsuppliers
@@ -294,11 +296,23 @@
             kryptonButton1.Values.Text = "اضافة";
             kryptonButton1.Click += kryptonButton1_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.ion__arrow_back;
+            pictureBox1.Location = new Point(31, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(114, 48);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 42;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // AddPurchaseBillKy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1414, 751);
+            Controls.Add(pictureBox1);
             Controls.Add(kryptonButton1);
             Controls.Add(kryptonDate);
             Controls.Add(kryptonquantity);
@@ -321,10 +335,13 @@
             Controls.Add(kryptonListitems);
             Controls.Add(kryptonListsuppliers);
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            MaximumSize = new Size(1432, 798);
+            MinimumSize = new Size(1432, 798);
             Name = "AddPurchaseBillKy";
             Text = "اضافة فاتورة مشتريات";
             TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
             Load += AddPurchaseBillKy_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -352,5 +369,6 @@
         private Krypton.Toolkit.KryptonNumericUpDown kryptonquantity;
         private Krypton.Toolkit.KryptonDateTimePicker kryptonDate;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private PictureBox pictureBox1;
     }
 }

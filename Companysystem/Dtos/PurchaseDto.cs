@@ -1,6 +1,8 @@
 ﻿using Companysystem.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -45,5 +47,11 @@ namespace Companysystem.Dtos
         public decimal NetPriceValue { get; set; }
 
         public decimal priceUnit { get; set; }
+
+
+
+
+        [Display(Name ="مسترجعه")]
+        public bool isRetirved { get; set; }
     }
 }

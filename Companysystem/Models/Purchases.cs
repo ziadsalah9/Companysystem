@@ -45,5 +45,7 @@ namespace Companysystem.Models
 
         public decimal priceUnit { get;  set; }
 
+        public bool isRetrived { get; set; }
+
     }
 }

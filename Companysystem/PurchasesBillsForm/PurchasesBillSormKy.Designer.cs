@@ -28,32 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             dv = new Krypton.Toolkit.KryptonDataGridView();
+            pictureBox1 = new PictureBox();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.ion__arrow_back;
-            pictureBox1.Location = new Point(41, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(114, 48);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 41;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // dv
             // 
+            dv.AllowUserToAddRows = false;
+            dv.AllowUserToDeleteRows = false;
             dv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dv.BorderStyle = BorderStyle.None;
             dv.ColumnHeadersHeight = 36;
             dv.Location = new Point(41, 243);
             dv.Name = "dv";
+            dv.ReadOnly = true;
             dv.RightToLeft = RightToLeft.Yes;
             dv.RowHeadersWidth = 51;
             dv.Size = new Size(1425, 479);
@@ -69,6 +61,17 @@
             dv.StateCommon.HeaderRow.Back.Color2 = Color.White;
             dv.TabIndex = 40;
             dv.CellContentClick += dv_CellContentClick;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.ion__arrow_back;
+            pictureBox1.Location = new Point(41, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(114, 48);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 41;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // kryptonButton1
             // 
@@ -112,6 +115,7 @@
             kryptonButton2.StateCommon.Content.ShortText.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kryptonButton2.TabIndex = 43;
             kryptonButton2.Values.Text = "استرجاع فاتورة";
+            kryptonButton2.Click += kryptonButton2_Click;
             // 
             // PurchasesBillSormKy
             // 
@@ -124,12 +128,14 @@
             Controls.Add(dv);
             ForeColor = Color.Black;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            MaximumSize = new Size(1496, 781);
+            MinimumSize = new Size(1496, 781);
             Name = "PurchasesBillSormKy";
             Text = "فواتير المشتريات";
             TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
             Load += PurchasesBillSormKy_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

@@ -38,14 +38,14 @@ namespace Companysystem
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            BillsForms s = new BillsForms();
+            SalesBillsFormKy s = new ();
             s.Show();
             Hide();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            AddItemKy itform = new ItemsForms.AddItemKy();
+            clieFormKy itform = new ();
             itform.Show();
             Hide();
         }
@@ -59,7 +59,7 @@ namespace Companysystem
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            var sup = new Supplierform();
+            var sup = new SupplierformKy();
             sup.Show();
             Hide();
         }

@@ -34,8 +34,8 @@ namespace Companysystem.PurchasesBillsForm
             kryptonListitems.DisplayMember = "Name";
             kryptonListitems.ValueMember = "Id";
 
-                   kryptonListsuppliers.SelectedIndexChanged += kryptonListsuppliers_SelectedIndexChanged;
-                   kryptonListitems.SelectedIndexChanged += kryptonListitems_SelectedIndexChanged;
+            kryptonListsuppliers.SelectedIndexChanged += kryptonListsuppliers_SelectedIndexChanged;
+            kryptonListitems.SelectedIndexChanged += kryptonListitems_SelectedIndexChanged;
         }
 
         private void kryptonLabel8_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace Companysystem.PurchasesBillsForm
                 var value = kryptonprice.Value * kryptonquantity.Value;
                 var netpricevalue = value - kryptondiscount.Value + (kryptontransport.Value + kryptonjamaric.Value + kryptonother.Value);
 
-               
+
                 var data = new Purchases
                 {
                     Date = kryptonDate.Value,
@@ -72,7 +72,7 @@ namespace Companysystem.PurchasesBillsForm
                     NetPriceValue = netpricevalue,
                     priceUnit = ((decimal)Math.Pow(Convert.ToDouble(kryptonquantity.Value), -1.00)) * netpricevalue
                 };
-               
+
                 context.Purchases.Add(data);
                 context.SaveChanges();
 
@@ -110,6 +110,13 @@ namespace Companysystem.PurchasesBillsForm
         private void kryptonListitems_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PurchasesBillSormKy ky = new PurchasesBillSormKy();
+            ky.Show();
+            Hide();
         }
     }
 }

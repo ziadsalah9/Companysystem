@@ -1,6 +1,7 @@
 ﻿using Companysystem.Dtos;
 using Companysystem.Models;
 using Microsoft.EntityFrameworkCore;
+using Npgsql.Replication;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,7 +60,11 @@ namespace Companysystem.PurchasesBillsForm
                              priceUnit = p.priceUnit,
                              PriceValue = p.PriceValue,
                              TransportAndShipping = p.TransportAndShipping,
-                             SupplierId = p.SupplierId
+                             SupplierId = p.SupplierId,
+                             isRetirved= p.isRetrived
+                            
+                            
+                             
                          })
                          .ToList();
 
@@ -82,6 +87,7 @@ namespace Companysystem.PurchasesBillsForm
                 dv.Columns["TransportAndShipping"].HeaderText = "نقل و شحن ";
                 dv.Columns["priceUnit"].HeaderText = "تكلفة الوحدة";
                 dv.Columns["NetPriceValue"].HeaderText = "صافى القيمة";
+              //  dv.Columns["isRetrived"].HeaderText ="مسترجعه";
 
             }
         }
@@ -105,6 +111,13 @@ namespace Companysystem.PurchasesBillsForm
             addPurchaseBillKy.Show();
             Hide();
 
+        }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+            var ky =new  retriveinvoice();
+            ky.Show();
+            Hide();
         }
     }
 }

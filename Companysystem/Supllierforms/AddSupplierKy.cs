@@ -29,17 +29,25 @@ namespace Companysystem.Supllierforms
             using (var context = new StoreContext())
             {
 
+
+
+
                 var data = new Supplier
                 {
                     Name = kryptonTextBox2.Text,
                 };
+                string trimmedName = data.Name.Trim();
 
-                context.Suppliers.Add(data);
-                context.SaveChanges();
-                string message = "تمت العملية بنجاح!";
-                string tittle = "نجاح";
-                MessageBox.Show(message, tittle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (data.Name!= "ادخل الاسم" && !string.IsNullOrEmpty(trimmedName))
+                {
 
+                    context.Suppliers.Add(data);
+                    context.SaveChanges();
+                    string message = "تمت العملية بنجاح!";
+                    string tittle = "نجاح";
+
+                    MessageBox.Show(message, tittle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 SupplierformKy supplierform = new ();
                 supplierform.Show();
                 Hide();
