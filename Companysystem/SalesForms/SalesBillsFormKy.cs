@@ -138,7 +138,7 @@ namespace Companysystem.SalesForms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form1 ky = new Form1();
+            HomeForm ky = new ();
             ky.Show();
             Hide();
         }

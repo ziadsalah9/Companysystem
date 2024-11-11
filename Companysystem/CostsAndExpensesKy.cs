@@ -130,7 +130,7 @@ namespace Companysystem
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            HomeForm f = new ();
             f.Show();
             Hide();
         }

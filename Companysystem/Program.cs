@@ -28,12 +28,13 @@ namespace Companysystem
             //ApplicationConfiguration.Initialize();
 
             var mainForm = serviceProvider.GetRequiredService<BillsForms>();
-            var main = serviceProvider.GetRequiredService<Form1>();
+          //var main = serviceProvider.GetRequiredService<Form1>();
+          //  var main = serviceProvider.GetRequiredService<HomeForm>();
 
-            
 
-         // Application.Run(new Form1());
-           Application.Run(main);
+
+            // Application.Run(new Form1());
+            Application.Run(new HomeForm());
 
 
         }

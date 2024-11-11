@@ -314,8 +314,8 @@ namespace Companysystem.SalesForms
 
 
 
-                        OkOrNotWhenQuanityGreaterThanEndingStore okornott = new OkOrNotWhenQuanityGreaterThanEndingStore(still, sale2, fi);
-                        okornott.Show();
+                        OkOrNotWhenQuanityGreaterThanEndingStoreKy okornottky = new OkOrNotWhenQuanityGreaterThanEndingStoreKy(still, sale2, fi);
+                        okornottky.Show();
                         Hide();
 
                     }

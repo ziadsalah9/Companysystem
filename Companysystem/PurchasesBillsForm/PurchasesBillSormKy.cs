@@ -100,7 +100,7 @@ namespace Companysystem.PurchasesBillsForm
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form1 form = new();
+            HomeForm form = new();
             form.Show();
             Hide();
         }
