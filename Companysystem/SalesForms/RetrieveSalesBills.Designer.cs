@@ -1,6 +1,6 @@
-﻿namespace Companysystem.Clientforms
+﻿namespace Companysystem.SalesForms
 {
-    partial class AddClientFormKy
+    partial class RetrieveSalesBills
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
+            pictureBox1 = new PictureBox();
+            kryptondelete = new Krypton.Toolkit.KryptonNumericUpDown();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            kryptonTextBox2 = new Krypton.Toolkit.KryptonTextBox();
-            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.ion__arrow_back;
+            pictureBox1.Location = new Point(53, 40);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(114, 48);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 69;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // kryptondelete
+            // 
+            kryptondelete.Increment = new decimal(new int[] { 1, 0, 0, 0 });
+            kryptondelete.Location = new Point(244, 300);
+            kryptondelete.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            kryptondelete.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
+            kryptondelete.Name = "kryptondelete";
+            kryptondelete.Size = new Size(549, 38);
+            kryptondelete.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptondelete.StateCommon.Border.Rounding = 20F;
+            kryptondelete.TabIndex = 68;
+            kryptondelete.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(559, 121);
+            kryptonLabel1.Location = new Point(297, 166);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(128, 40);
+            kryptonLabel1.Size = new Size(426, 40);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonLabel1.TabIndex = 6;
-            kryptonLabel1.Values.Text = "اسم العميل";
-            kryptonLabel1.Click += kryptonLabel1_Click;
+            kryptonLabel1.TabIndex = 67;
+            kryptonLabel1.Values.Text = "ادخل رقم الفاتورة التى تريد استرجاعها";
             // 
             // kryptonButton1
             // 
-            kryptonButton1.Location = new Point(162, 292);
+            kryptonButton1.Location = new Point(383, 423);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            kryptonButton1.Size = new Size(176, 44);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(6, 174, 224);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton1.Size = new Size(244, 55);
+            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(255, 0, 60);
+            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(255, 0, 60);
             kryptonButton1.StateCommon.Back.ColorAngle = 45F;
             kryptonButton1.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 224);
             kryptonButton1.StateCommon.Border.Color2 = Color.FromArgb(8, 142, 254);
@@ -63,64 +86,35 @@
             kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
             kryptonButton1.StateCommon.Content.ShortText.Color2 = Color.White;
             kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonButton1.TabIndex = 5;
-            kryptonButton1.Values.Text = "اضافة";
+            kryptonButton1.TabIndex = 66;
+            kryptonButton1.Values.Text = "حذف";
             kryptonButton1.Click += kryptonButton1_Click;
             // 
-            // kryptonTextBox2
-            // 
-            kryptonTextBox2.Location = new Point(162, 209);
-            kryptonTextBox2.Name = "kryptonTextBox2";
-            kryptonTextBox2.RightToLeft = RightToLeft.Yes;
-            kryptonTextBox2.Size = new Size(525, 39);
-            kryptonTextBox2.StateCommon.Back.Color1 = Color.FromArgb(250, 252, 252);
-            kryptonTextBox2.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonTextBox2.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
-            kryptonTextBox2.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonTextBox2.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonTextBox2.StateCommon.Border.Rounding = 20F;
-            kryptonTextBox2.StateCommon.Content.Color1 = Color.Black;
-            kryptonTextBox2.StateCommon.Content.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonTextBox2.TabIndex = 7;
-            kryptonTextBox2.Text = "ادخل الاسم";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.ion__arrow_back;
-            pictureBox1.Location = new Point(36, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(114, 48);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 39;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
-            // AddClientFormKy
+            // RetrieveSalesBills
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1055, 582);
             Controls.Add(pictureBox1);
-            Controls.Add(kryptonTextBox2);
+            Controls.Add(kryptondelete);
             Controls.Add(kryptonLabel1);
             Controls.Add(kryptonButton1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            MaximumSize = new Size(818, 497);
-            MinimumSize = new Size(818, 497);
-            Name = "AddClientFormKy";
-            Text = "اضافة عميل";
+            Name = "RetrieveSalesBills";
+            Text = "استرجاع فاتورة مبيعات";
             TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
-            Load += AddClientFormKy_Load;
+            Load += RetrieveSalesBills_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private PictureBox pictureBox1;
+        private Krypton.Toolkit.KryptonNumericUpDown kryptondelete;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
-        private PictureBox pictureBox1;
     }
 }

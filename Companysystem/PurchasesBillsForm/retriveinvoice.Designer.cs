@@ -31,16 +31,18 @@
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptondelete = new Krypton.Toolkit.KryptonNumericUpDown();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(318, 134);
+            kryptonLabel1.Location = new Point(282, 135);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(371, 40);
+            kryptonLabel1.Size = new Size(426, 40);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kryptonLabel1.TabIndex = 11;
-            kryptonLabel1.Values.Text = "ادخل رقم الفاتورة التى تريد حذفها";
+            kryptonLabel1.Values.Text = "ادخل رقم الفاتورة التى تريد استرجاعها";
             // 
             // kryptonButton1
             // 
@@ -78,19 +80,33 @@
             kryptondelete.Value = new decimal(new int[] { 0, 0, 0, 0 });
             kryptondelete.ValueChanged += kryptondelete_ValueChanged;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.ion__arrow_back;
+            pictureBox1.Location = new Point(42, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(114, 48);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 65;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // retriveinvoice
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1055, 582);
+            Controls.Add(pictureBox1);
             Controls.Add(kryptondelete);
             Controls.Add(kryptonLabel1);
             Controls.Add(kryptonButton1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Name = "retriveinvoice";
-            Text = "استرجاع فاتورة";
+            Text = "استرجاع فاتورة مشتريات";
             TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
             Load += retriveinvoice_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -100,5 +116,6 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private Krypton.Toolkit.KryptonNumericUpDown kryptondelete;
+        private PictureBox pictureBox1;
     }
 }

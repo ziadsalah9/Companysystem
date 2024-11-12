@@ -112,7 +112,7 @@ namespace Companysystem.SalesForms
             if (clients.Count() <= 0)
             {
                 MessageBox.Show("لا يوجد عملاء, من فضلك قم باضافة عميل");
-                AddClientFormKy f = new ();
+                AddClientFormKy f = new();
                 f.Show();
                 Hide();
 
@@ -121,7 +121,7 @@ namespace Companysystem.SalesForms
             else if (items.Count() <= 0)
             {
                 MessageBox.Show("لا يوجد أصناف, من فضلك قم بالاضافة");
-                AddItemKy af = new ();
+                AddItemKy af = new();
                 af.Show();
 
                 Hide();
@@ -130,7 +130,7 @@ namespace Companysystem.SalesForms
             else
             {
 
-                AddSalesBillsFormKy s = new ();
+                AddSalesBillsFormKy s = new();
                 s.Show();
                 Hide();
             }
@@ -138,8 +138,15 @@ namespace Companysystem.SalesForms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            HomeForm ky = new ();
+            HomeForm ky = new();
             ky.Show();
+            Hide();
+        }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+            RetrieveSalesBills r = new RetrieveSalesBills();
+            r.Show();
             Hide();
         }
     }

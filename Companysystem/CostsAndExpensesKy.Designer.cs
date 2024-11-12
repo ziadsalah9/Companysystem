@@ -472,6 +472,7 @@
             Controls.Add(kryptonLabel3);
             Controls.Add(kryptonLabel2);
             Controls.Add(kryptonLabel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Name = "CostsAndExpensesKy";
             Text = "التكاليف والنفقات";

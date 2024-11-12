@@ -141,10 +141,9 @@
             Controls.Add(kryptonButton1);
             Controls.Add(label4);
             Controls.Add(LB1);
-           // FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "OkOrNotWhenQuanityGreaterThanEndingStoreKy";
             Text = "";
-            //TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
             Load += OkOrNotWhenQuanityGreaterThanEndingStoreKy_Load;
             ResumeLayout(false);
             PerformLayout();

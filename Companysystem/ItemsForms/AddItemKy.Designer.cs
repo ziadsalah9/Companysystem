@@ -90,6 +90,7 @@
             Controls.Add(kryptonTextBox2);
             Controls.Add(kryptonLabel1);
             Controls.Add(kryptonButton1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             Name = "AddItemKy";
             Text = "اضافة عميل";

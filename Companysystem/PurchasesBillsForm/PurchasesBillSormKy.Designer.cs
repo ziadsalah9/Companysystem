@@ -127,6 +127,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(dv);
             ForeColor = Color.Black;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             MaximumSize = new Size(1496, 781);
             MinimumSize = new Size(1496, 781);

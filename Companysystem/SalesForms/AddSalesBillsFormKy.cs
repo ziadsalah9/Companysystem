@@ -341,6 +341,11 @@ namespace Companysystem.SalesForms
 
         }
 
-
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            SalesBillsFormKy form = new ();
+            form.Show();
+            Hide();
+        }
     }
 }

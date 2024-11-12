@@ -56,6 +56,7 @@
             kryptonButton2.StateCommon.Content.ShortText.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kryptonButton2.TabIndex = 47;
             kryptonButton2.Values.Text = "استرجاع فاتورة";
+            kryptonButton2.Click += kryptonButton2_Click;
             // 
             // kryptonButton1
             // 

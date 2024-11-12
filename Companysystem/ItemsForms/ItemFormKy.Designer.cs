@@ -53,6 +53,7 @@
             dv.Dock = DockStyle.Fill;
             dv.Location = new Point(0, 0);
             dv.Name = "dv";
+            dv.ReadOnly = true;
             dv.RightToLeft = RightToLeft.Yes;
             dv.RowHeadersWidth = 51;
             dv.Size = new Size(748, 515);
@@ -167,6 +168,7 @@
             Controls.Add(kryptonTextBox2);
             Controls.Add(panel1);
             Controls.Add(kryptonButton1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             MaximumSize = new Size(1390, 738);
             MinimumSize = new Size(1390, 738);

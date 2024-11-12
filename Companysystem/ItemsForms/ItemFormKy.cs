@@ -82,8 +82,9 @@ namespace Companysystem.ItemsForms
 
                         if (action == "تعديل")
                         {
-                            // Handle edit action
-                            EditClient(clientId);
+                             editItemsFormKy ky = new (clientId);
+                            ky.Show();
+                            Hide();
                         }
                         else if (action == "حذف")
                         {

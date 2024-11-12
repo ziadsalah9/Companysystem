@@ -78,5 +78,12 @@ namespace Companysystem
             ky.Show();
             Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StoreForm.StoreFormKy ky = new StoreForm.StoreFormKy();
+            ky.Show();
+            Hide();
+        }
     }
 }

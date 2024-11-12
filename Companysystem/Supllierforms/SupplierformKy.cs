@@ -1,4 +1,5 @@
-﻿using Companysystem.Models;
+﻿using Companysystem.Clientforms;
+using Companysystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -117,7 +118,9 @@ namespace Companysystem.Supllierforms
                         if (action == "تعديل")
                         {
                             // Handle edit action
-                            EditClient(clientId);
+                            editsupplierformKy ky = new (clientId);
+                            ky.Show();
+                            Hide();
                         }
                         else if (action == "حذف")
                         {

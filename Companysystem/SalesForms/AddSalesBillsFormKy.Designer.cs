@@ -58,6 +58,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 64;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // kryptonButton1
             // 
@@ -267,6 +268,7 @@
             Controls.Add(kryptonLabel1);
             Controls.Add(kryptonListitems);
             Controls.Add(kryptonListclients);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             MaximumSize = new Size(1432, 798);
             MinimumSize = new Size(1432, 798);

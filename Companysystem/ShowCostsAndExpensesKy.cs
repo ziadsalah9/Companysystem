@@ -66,5 +66,10 @@ namespace Companysystem
             ky.Show();
             Hide();
         }
+
+        private void dv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

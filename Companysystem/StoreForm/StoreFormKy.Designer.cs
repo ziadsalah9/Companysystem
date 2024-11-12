@@ -1,6 +1,6 @@
-﻿namespace Companysystem
+﻿namespace Companysystem.StoreForm
 {
-    partial class ShowCostsAndExpensesKy
+    partial class StoreFormKy
     {
         /// <summary>
         /// Required designer variable.
@@ -39,12 +39,12 @@
             dv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dv.BorderStyle = BorderStyle.None;
             dv.ColumnHeadersHeight = 36;
-            dv.Location = new Point(39, 62);
+            dv.Location = new Point(30, 119);
             dv.Name = "dv";
             dv.ReadOnly = true;
             dv.RightToLeft = RightToLeft.Yes;
             dv.RowHeadersWidth = 51;
-            dv.Size = new Size(1001, 543);
+            dv.Size = new Size(1284, 581);
             dv.StateCommon.Background.Color1 = Color.FromArgb(250, 252, 252);
             dv.StateCommon.Background.Color2 = Color.FromArgb(250, 252, 252);
             dv.StateCommon.Background.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Form;
@@ -54,33 +54,32 @@
             dv.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(8, 142, 254);
             dv.StateCommon.HeaderRow.Back.Color1 = Color.White;
             dv.StateCommon.HeaderRow.Back.Color2 = Color.White;
-            dv.TabIndex = 1;
-            dv.CellContentClick += dv_CellContentClick;
+            dv.TabIndex = 2;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.ion__arrow_back;
-            pictureBox1.Location = new Point(52, 8);
+            pictureBox1.Location = new Point(64, 39);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(114, 48);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 39;
+            pictureBox1.TabIndex = 40;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // ShowCostsAndExpensesKy
+            // StoreFormKy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1080, 659);
+            ClientSize = new Size(1346, 735);
             Controls.Add(pictureBox1);
             Controls.Add(dv);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            Name = "ShowCostsAndExpensesKy";
-            Text = "عرض المصروفات والنفقات";
+            Name = "StoreFormKy";
+            Text = "المخزن";
             TitleStyle = Krypton.Toolkit.KryptonFormTitleStyle.Modern;
-            Load += ShowCostsAndExpensesKy_Load;
+            Load += StoreFormKy_Load;
             ((System.ComponentModel.ISupportInitialize)dv).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

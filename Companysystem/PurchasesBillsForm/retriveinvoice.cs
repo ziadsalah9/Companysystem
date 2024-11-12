@@ -32,15 +32,16 @@ namespace Companysystem.PurchasesBillsForm
             {
 
                 var data = context.Purchases.FirstOrDefault(p => p.Id == kryptondelete.Value);
-                if (data != null) {
+                if (data != null)
+                {
 
                     var old = context.Stores.FirstOrDefault(p => p.PurchasesBillId == data.Id);
-                    old.incoming += (data.quantity*-1) ;
+                    old.incoming += (data.quantity * -1);
                     old.EndingStore += (data.quantity * -1);
-                    old.InventoryCost += ((data.quantity * -1)*(old.priceUnit));
+                    old.InventoryCost += ((data.quantity * -1) * (old.priceUnit));
 
                     data.isRetrived = true;
-     
+
 
                     context.SaveChanges();
                     string message = "تمت العملية بنجاح!";
@@ -52,7 +53,7 @@ namespace Companysystem.PurchasesBillsForm
                     Hide();
 
                 }
-               else
+                else
                 {
                     MessageBox.Show("لا توجد فاتورة بهذا الرقم ");
                 }
@@ -62,6 +63,13 @@ namespace Companysystem.PurchasesBillsForm
         private void kryptondelete_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PurchasesBillSormKy ku = new PurchasesBillSormKy();
+            ku.Show();
+            Hide();
         }
     }
 }

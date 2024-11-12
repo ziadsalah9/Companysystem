@@ -70,6 +70,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 252, 252);
             ClientSize = new Size(974, 590);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "BaseForm";
             Palette = kryptonCustomPaletteBase1;
             PaletteMode = Krypton.Toolkit.PaletteMode.Custom;

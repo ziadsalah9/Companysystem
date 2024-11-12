@@ -334,6 +334,7 @@
             Controls.Add(kryptonLabel1);
             Controls.Add(kryptonListitems);
             Controls.Add(kryptonListsuppliers);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormTitleAlign = Krypton.Toolkit.PaletteRelativeAlign.Center;
             MaximumSize = new Size(1432, 798);
             MinimumSize = new Size(1432, 798);
